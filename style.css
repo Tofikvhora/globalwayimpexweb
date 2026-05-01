@@ -1,0 +1,166 @@
+:root {
+  --primary: #0d6efd;
+  --secondary: #20c997;
+  --glass: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0d6efd, #20c997);
+  color: white;
+}
+
+/* NAVBAR GLASS */
+.glass-nav {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.1);
+  padding: 10px 20px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box img {
+  border-radius: 50%;
+}
+
+nav a {
+  margin: 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px white;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url('https://source.unsplash.com/1600x900/?cargo,ship') center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 40px;
+}
+
+/* GLASS EFFECT */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* SECTION */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* GLASS CARD */
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.hover-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.small {
+  padding: 15px 25px;
+}
+
+/* IMAGES */
+.glass-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* BUTTON */
+.btn {
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: black;
+  color: white;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .grid {
+    flex-direction: column;
+  }
+}

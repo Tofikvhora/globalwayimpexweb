@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GlobalWay Impex | Global Agro-Commodity Partner</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#001b3d", "on-tertiary": "#ffffff", "secondary-fixed": "#cce5ff",
+                        "surface-dim": "#dadadc", "on-primary-fixed-variant": "#264778", "tertiary": "#12181d",
+                        "on-primary-container": "#7594ca", "background": "#f9f9fc", "surface-container-low": "#f3f3f6",
+                        "on-surface-variant": "#43474f", "tertiary-fixed-dim": "#c1c7ce", "primary-fixed": "#d6e3ff",
+                        "surface": "#f9f9fc", "tertiary-fixed": "#dde3ea", "outline": "#747780", "primary": "#001736",
+                        "surface-container": "#eeeef0", "on-secondary-container": "#41627e", "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a", "surface-bright": "#f9f9fc", "on-error": "#ffffff",
+                        "surface-variant": "#e2e2e5", "outline-variant": "#c4c6d0", "on-primary": "#ffffff",
+                        "surface-tint": "#405f91", "on-background": "#1a1c1e", "on-secondary-fixed": "#001d31",
+                        "on-tertiary-fixed-variant": "#41484d", "secondary-fixed-dim": "#a8caea", "on-tertiary-container": "#8e949b",
+                        "on-secondary-fixed-variant": "#284a65", "on-surface": "#1a1c1e", "on-tertiary-fixed": "#161c21",
+                        "primary-container": "#002b5b", "inverse-on-surface": "#f0f0f3", "primary-fixed-dim": "#a9c7ff",
+                        "error-container": "#ffdad6", "secondary": "#40627e", "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3133", "secondary-container": "#bcdeff", "surface-container-highest": "#e2e2e5",
+                        "surface-container-high": "#e8e8ea", "tertiary-container": "#262d32", "error": "#ba1a1a", "inverse-primary": "#a9c7ff"
+                    },
+                    borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+                    spacing: { "section-padding": "80px", "element-gap": "16px", "gutter": "24px", "base": "8px", "container-max": "1280px" },
+                    fontFamily: { "display": ["Manrope"], "body-md": ["Manrope"], "headline-h1": ["Manrope"], "button": ["Manrope"], "label-caps": ["Manrope"], "headline-h3": ["Manrope"], "headline-h2": ["Manrope"], "body-lg": ["Manrope"] },
+                    fontSize: { "display": ["4.5rem", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-md": ["1rem", { "lineHeight": "1.6", "fontWeight": "400" }], "headline-h1": ["3rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }], "button": ["0.875rem", { "lineHeight": "1", "fontWeight": "600" }], "label-caps": ["0.75rem", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }], "headline-h3": ["1.5rem", { "lineHeight": "1.4", "fontWeight": "600" }], "headline-h2": ["2.25rem", { "lineHeight": "1.3", "fontWeight": "700" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }] }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        
+        /* Fade-up scroll animation */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Page transition */
+        .page-transition { transition: opacity 0.3s ease-in-out; }
+        .page-loading { opacity: 0; }
+
+        /* Mobile menu overlay */
+        .mobile-nav-open { overflow: hidden; }
+        .mobile-menu { transition: transform 0.3s ease-in-out; transform: translateX(100%); }
+        .mobile-menu.open { transform: translateX(0); }
+        
+        /* Hover image scaling */
+        .hover-scale { transition: transform 0.5s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        
+        /* smooth button interactions */
+        .smooth-btn { transition: all 0.2s ease; }
+        .smooth-btn:active { transform: scale(0.96); }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface overflow-x-hidden">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 border-b border-white/20 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,43,91,0.05)]">
+        <div class="flex justify-between items-center px-6 md:px-12 h-20 w-full max-w-screen-2xl mx-auto">
+            <div class="text-2xl font-black tracking-tighter text-blue-900 uppercase font-display">GlobalWay Impex</div>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="nav-link font-manrope text-sm font-semibold tracking-wide text-slate-600 hover:text-blue-800 transition-colors" data-route="home" href="#">Home</a>
+                <a class="nav-link font-manrope text-sm font-semibold tracking-wide text-slate-600 hover:text-blue-800 transition-colors" data-route="about" href="#">About Us</a>
+                <a class="nav-link font-manrope text-sm font-semibold tracking-wide text-slate-600 hover:text-blue-800 transition-colors" data-route="products" href="#">Products</a>
+                <a class="nav-link font-manrope text-sm font-semibold tracking-wide text-slate-600 hover:text-blue-800 transition-colors" data-route="markets" href="#">Markets</a>
+                <a class="nav-link font-manrope text-sm font-semibold tracking-wide text-slate-600 hover:text-blue-800 transition-colors" data-route="contact" href="#">Contact</a>
+            </nav>
+            <button id="quoteBtn" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-button smooth-btn">Get a Quote</button>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-primary focus:outline-none">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+        <!-- Mobile Menu Sidebar -->
+        <div id="mobileMenu" class="mobile-menu fixed top-20 right-0 w-64 h-full bg-white/95 backdrop-blur-xl shadow-2xl border-l border-gray-200 z-40 flex flex-col p-6 gap-6">
+            <a class="mobile-nav-link text-lg font-semibold text-slate-700 hover:text-blue-800" data-route="home" href="#">Home</a>
+            <a class="mobile-nav-link text-lg font-semibold text-slate-700 hover:text-blue-800" data-route="about" href="#">About Us</a>
+            <a class="mobile-nav-link text-lg font-semibold text-slate-700 hover:text-blue-800" data-route="products" href="#">Products</a>
+            <a class="mobile-nav-link text-lg font-semibold text-slate-700 hover:text-blue-800" data-route="markets" href="#">Markets</a>
+            <a class="mobile-nav-link text-lg font-semibold text-slate-700 hover:text-blue-800" data-route="contact" href="#">Contact</a>
+        </div>
+    </header>
+
+    <main id="app-content" class="pt-20 page-transition"></main>
+
+    <footer class="w-full border-t border-white/10 bg-blue-950 py-12 mt-0">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-6 md:px-12 w-full max-w-screen-2xl mx-auto font-manrope text-xs text-white">
+            <div class="md:col-span-1"><span class="text-lg font-bold text-white mb-4 block uppercase tracking-tighter">GlobalWay Impex</span><p class="text-slate-400 leading-relaxed mb-6">Redefining the agro-commodity trade through precision, transparency, and global scale.</p></div>
+            <div><h4 class="font-bold text-sm mb-6 uppercase tracking-wider">Markets</h4><ul class="space-y-4"><li><a class="footer-link text-slate-400 hover:text-white transition underline decoration-blue-500/50 underline-offset-4" data-route="markets" href="#">Middle East</a></li><li><a class="footer-link text-slate-400 hover:text-white transition underline decoration-blue-500/50 underline-offset-4" data-route="markets" href="#">Southeast Asia</a></li><li><a class="footer-link text-slate-400 hover:text-white transition underline decoration-blue-500/50 underline-offset-4" data-route="markets" href="#">Europe</a></li></ul></div>
+            <div><h4 class="font-bold text-sm mb-6 uppercase tracking-wider">Resources</h4><ul class="space-y-4"><li><a class="text-slate-400 hover:text-white transition" href="#">Shipping Info</a></li><li><a class="text-slate-400 hover:text-white transition" href="#">Privacy Policy</a></li><li><a class="text-slate-400 hover:text-white transition" href="#">Terms of Service</a></li></ul></div>
+            <div><h4 class="font-bold text-sm mb-6 uppercase tracking-wider">Newsletter</h4><div class="flex flex-col gap-4"><p class="text-slate-400">Receive global trade updates and price insights.</p><div class="flex bg-white/5 rounded overflow-hidden p-1 border border-white/10"><input id="newsletterEmail" class="bg-transparent border-none text-xs focus:ring-0 text-white w-full px-3" placeholder="Work email" type="email" /><button id="newsletterSubscribe" class="bg-primary-container px-4 py-2 text-white font-bold text-[10px] uppercase">Join</button></div></div></div>
+        </div>
+        <div class="px-6 md:px-12 pt-8 w-full max-w-screen-2xl mx-auto border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500"><p>© 2025 GlobalWay Impex. Leading Global Agro-Commodity Partner.</p><div class="flex gap-6"><span class="material-symbols-outlined text-xl opacity-50 hover:opacity-100 cursor-pointer">public</span><span class="material-symbols-outlined text-xl opacity-50 hover:opacity-100 cursor-pointer">mail</span><span class="material-symbols-outlined text-xl opacity-50 hover:opacity-100 cursor-pointer">share</span></div></div>
+    </footer>
+
+    <script>
+        // ---------- PAGE CONTENT DEFINITIONS (SPA) ----------
+        const pages = {
+            home: {
+                title: "GlobalWay Impex | Home - Global Agro Trade",
+                html: `
+                    <section class="relative h-[400px] flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 z-0"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1inwPhU1YBRn7Ym5K3AlD7ik0Ay_OTAqq9B2N6FIhJShtBnsMVGjCtYjVP8olglG-vTkLWkazMbR8pONPlswaiLW86Pam69HcKcElWabSyBDAiCf-qSBrt1kAQtjWLfK6bYSV6XSygsP373CO6flpq9zejzZIDHeVgwf0SBqb20B9g9Y5spHUIFY6BpNv7J7fDuH49DPauWl_0yJ0-O9Xt5vUFXFYKXNVo3QmQSAqnS04toNAFrIR3vPQkW4UkPD5SbiJsvLnz6bc" alt="container terminal" /><div class="absolute inset-0 bg-primary/40 backdrop-blur-[2px]"></div></div>
+                        <div class="relative z-10 text-center px-gutter max-w-4xl"><h1 class="font-display text-headline-h1 text-white mb-4">Excellence Without Borders</h1><p class="font-body-lg text-white/90">Global trade solutions with certified quality & end-to-end logistics.</p></div>
+                    </section>
+                    <section class="py-section-padding px-6 md:px-12 max-w-screen-2xl mx-auto fade-up"><div class="flex flex-col md:flex-row gap-12 items-start"><div class="w-full md:w-1/3"><span class="font-label-caps text-on-secondary-container tracking-[0.2em] mb-4 block">STANDARDS</span><h2 class="font-display text-headline-h2 text-primary mb-6">World-Class Quality Assurance</h2><p class="text-on-surface-variant mb-8">Adhering to highest international safety, hygiene & ethical sourcing standards. Every product carries global trust.</p><div class="flex flex-wrap gap-3"><span class="px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold uppercase tracking-wider">ISO Certified</span><span class="px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold uppercase tracking-wider">HALAL Verified</span></div></div><div class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6"><div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-lg transition-all"><div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6"><span class="material-symbols-outlined text-on-primary-fixed text-3xl">verified</span></div><h3 class="font-display text-headline-h3 mb-2">ISO 22000</h3><p class="text-on-surface-variant text-sm">International Food Safety Management standards for global hygiene protocols.</p></div><div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-lg transition-all"><div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6"><span class="material-symbols-outlined text-on-primary-fixed text-3xl">security</span></div><h3 class="font-display text-headline-h3 mb-2">FSSAI</h3><p class="text-on-surface-variant text-sm">Strict compliance with Food Safety & Standards Authority of India.</p></div><div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-lg transition-all"><div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6"><span class="material-symbols-outlined text-on-primary-fixed text-3xl">public</span></div><h3 class="font-display text-headline-h3 mb-2">APEDA</h3><p class="text-on-surface-variant text-sm">Certified export development authority for trusted trade.</p></div><div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-lg transition-all"><div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6"><span class="material-symbols-outlined text-on-primary-fixed text-3xl">approval</span></div><h3 class="font-display text-headline-h3 mb-2">HALAL</h3><p class="text-on-surface-variant text-sm">Full Halal certification meeting dietary & processing requirements.</p></div></div></div></section>
+                    <section class="bg-primary py-section-padding text-white"><div class="px-6 md:px-12 max-w-screen-2xl mx-auto"><div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"><div><span class="font-label-caps text-on-primary-container tracking-[0.2em] mb-4 block">GLOBAL REACH</span><h2 class="font-display text-headline-h2 mb-8">Serving Diverse International Markets</h2><div class="space-y-6"><div class="flex items-start gap-4"><div class="bg-white/10 p-2 rounded"><span class="material-symbols-outlined text-white">language</span></div><div><h4 class="font-display text-lg font-bold">Middle East</h4><p class="text-white/70 text-sm">Primary supplier to Dubai, Saudi Arabia, and Qatar distributors.</p></div></div><div class="flex items-start gap-4"><div class="bg-white/10 p-2 rounded"><span class="material-symbols-outlined text-white">south_east</span></div><div><h4 class="font-display text-lg font-bold">South East Asia</h4><p class="text-white/70 text-sm">Extensive network across Indonesia, Malaysia, and Singapore.</p></div></div><div class="flex items-start gap-4"><div class="bg-white/10 p-2 rounded"><span class="material-symbols-outlined text-white">euro</span></div><div><h4 class="font-display text-lg font-bold">Europe</h4><p class="text-white/70 text-sm">Meeting stringent EU quality norms for distribution.</p></div></div></div></div><div class="relative group"><div class="absolute -inset-4 bg-white/5 rounded-3xl blur-2xl group-hover:bg-white/10 transition-all"></div><div class="relative glass-card bg-white/5 p-4 rounded-2xl overflow-hidden border border-white/10"><img class="rounded-xl w-full h-[450px] object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA94FJ2e3OBW_KRmWgc9M4DJRO-I2tD4iya7c23roZgkxxJHRXRzJKjBzTgr6Ia0S353KnKdKpdKM4bfmNjR9fsbE_O5UbsIrNhg8mrOUj3yOlgWw9mTpqWzmtJ7rBI1XHmhokQ4Q72uhgx8sCvHMr9lsvvKajnhOE9X1lL0ySg-wicVYEGIs014-cLjGyB3coJ67K7VFt8ejUqQSvCvoRjn9-kuWZXskjxgnsuF-7K5UWQXiAnALf1lan15dhBEzIktOgiRtqg8v3k" /><div class="absolute bottom-10 left-10 p-6 bg-primary-container/80 backdrop-blur-md rounded-xl"><p class="text-3xl font-black mb-1">24+</p><p class="text-xs uppercase tracking-widest">Countries Reached</p></div></div></div></div></div></section>
+                    <section class="py-section-padding px-6 md:px-12 max-w-screen-2xl mx-auto fade-up"><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="md:col-span-2 glass-card p-12 rounded-2xl flex flex-col justify-center"><h2 class="font-display text-headline-h2 text-primary mb-4">Operational Prowess</h2><p class="text-on-surface-variant max-w-lg">From farm-gate sourcing to final container seal, logistics chain optimized for speed, safety, and scale.</p></div><div class="bg-primary-container p-12 rounded-2xl text-white flex flex-col justify-between"><span class="material-symbols-outlined text-5xl">inventory_2</span><div><p class="text-4xl font-bold mb-2">500k+</p><p class="text-sm opacity-70">Metric Tons Exported</p></div></div><div class="bg-surface-container-high p-12 rounded-2xl flex flex-col justify-between"><span class="material-symbols-outlined text-5xl text-primary">handshake</span><div><p class="text-4xl font-bold text-primary mb-2">150+</p><p class="text-sm text-on-surface-variant">Global B2B Partners</p></div></div><div class="md:col-span-2 glass-card p-12 rounded-2xl flex items-center gap-12 overflow-hidden"><div><h4 class="font-display text-xl font-bold text-primary mb-2">Strategic Hubs</h4><p class="text-sm text-on-surface-variant">Port city warehouses ensure Indonesia, Malaysia, Singapore receive fresh shipments with minimal lead time.</p></div><div class="flex -space-x-4"><div class="w-16 h-16 rounded-full border-4 border-white overflow-hidden bg-slate-200"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn1LfgvDmg4AaNX1HWr81bcIFOHpAYfLBA9lqEj0ghMK7xRJ8OYLGSEDKOVOC6GvWtXr3f41Gb6qIak9e1ebm_FscoUbxJPhe82hMvJq0dJiykAqCYc5AqgQxvV59eZGUsiClGbmWV6Ym3SNCOyTXERKinC2Toosi8lO1e67s5qv7oCNuv3zKn7ZMeCczMHMv21mhHQOYwJOK4NQzrcnKCRoVVkxJEI5TAdPVDl5G0qkaxK5204JSnu3toabyeFMv7Ac7mY85aqsmJ" class="w-full h-full object-cover" /></div><div class="w-16 h-16 rounded-full border-4 border-white overflow-hidden bg-slate-300"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwtXbpWfrc2rO9zLL5K8TOuwp7I7ucmcR8pkwWq8CiLSR5HyJubWMLH4U8wbPr2wbINHrdEMGRsCO7mnzHm2krI7Eg-yixDPPGznRB103uvS3FkYHHtg8N0mVg32Nv1hdGgBiwnwoIbehVJNzjstDa2XHhWImupR-ma21e3iZ83HcFDXbZVKvRR9J_WOphfh3pVH7BuWGYzgdZspzYvYt0yeix5LwdUvnD7Ef047ajT8MfSignAWVO4T1eP6V3VOEq1-YrtjYOewRy" class="w-full h-full object-cover" /></div><div class="w-16 h-16 rounded-full border-4 border-white overflow-hidden bg-slate-400"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEr2IaIzXyojvIhTaEQM1j4KQRKdTUGWFpDjz5AqsUk6nX34AlJFBjbVTQuAFUz-RkxdOqsUdFT92PVWDhjSGF4qLD8CjklsoLIawIvowuDT2KLcT-nz_ZiVI3Hc_dimv1T1-DcpV-qxUfqpPcelkQMNsn2prdVKv8caExRZ_5qgwsn4WopZNxxvv39hZbJiyC8pW7k5Ngq8VIjPneOfs9ALmGl4xqWok7Z197sYK1_Bgx0EPwmhELD7j1qPPvNrNxAMjlFqhWqeWV" class="w-full h-full object-cover" /></div></div></div></div></section>
+                `
+            },
+            about: { title: "GlobalWay Impex | About Us", html: `<section class="py-section-padding px-6 md:px-12 max-w-screen-2xl mx-auto"><div class="max-w-3xl mx-auto text-center fade-up"><span class="font-label-caps text-on-secondary-container tracking-[0.2em]">OUR STORY</span><h1 class="font-display text-headline-h1 text-primary mt-4 mb-6">Built on Trust & Global Vision</h1><p class="text-on-surface-variant text-lg mb-10">Founded in 2005, GlobalWay Impex has grown into a premier agro-commodity export house, bridging farmers with over 24 countries. We revolutionize the supply chain with integrity, transparent pricing, and sustainable sourcing.</p></div><div class="grid md:grid-cols-3 gap-8 mt-16 fade-up"><div class="glass-card p-8 rounded-2xl text-center"><span class="material-symbols-outlined text-5xl text-primary">handshake</span><h3 class="text-xl font-bold mt-4 mb-2">Mission</h3><p class="text-sm text-on-surface-variant">Empower global food security by delivering premium agricultural commodities ethically.</p></div><div class="glass-card p-8 rounded-2xl text-center"><span class="material-symbols-outlined text-5xl text-primary">visibility</span><h3 class="text-xl font-bold mt-4 mb-2">Vision</h3><p class="text-sm text-on-surface-variant">To be the most trusted name in agro-trade, connecting continents with quality.</p></div><div class="glass-card p-8 rounded-2xl text-center"><span class="material-symbols-outlined text-5xl text-primary">diamond</span><h3 class="text-xl font-bold mt-4 mb-2">Core Values</h3><p class="text-sm text-on-surface-variant">Integrity, traceability, innovation, and partnership beyond contracts.</p></div></div></section>` },
+            products: { title: "GlobalWay Impex | Premium Products", html: `<section class="py-section-padding px-6 md:px-12 max-w-screen-2xl mx-auto"><div class="text-center fade-up"><span class="font-label-caps text-on-secondary-container">QUALITY COMMODITIES</span><h2 class="font-display text-headline-h2 text-primary my-4">Our Premium Export Range</h2><p class="text-on-surface-variant max-w-2xl mx-auto">Sourced from finest farms, processed with care, packed for global excellence.</p></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"><div class="glass-card rounded-xl overflow-hidden group hover:shadow-xl transition-all fade-up"><img class="h-56 w-full object-cover group-hover:scale-105 transition duration-700" src="https://images.unsplash.com/photo-1586201375761-83865001e8ac?w=600&h=400&fit=crop" alt="basmati rice"><div class="p-6"><h3 class="font-bold text-xl">Premium Basmati Rice</h3><p class="text-sm text-on-surface-variant mt-2">Aged, aromatic grains from the Himalayan foothills.</p><div class="mt-4"><span class="bg-primary-fixed px-3 py-1 rounded-full text-xs font-bold">APEDA Certified</span></div></div></div><div class="glass-card rounded-xl overflow-hidden group hover:shadow-xl transition-all fade-up"><img class="h-56 w-full object-cover group-hover:scale-105 transition duration-700" src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=600&h=400&fit=crop" alt="spices"><div class="p-6"><h3 class="font-bold text-xl">Whole & Ground Spices</h3><p class="text-sm text-on-surface-variant mt-2">Turmeric, red chili, coriander, cumin – pure Indian origin.</p><div class="mt-4"><span class="bg-primary-fixed px-3 py-1 rounded-full text-xs font-bold">HALAL | ISO</span></div></div></div><div class="glass-card rounded-xl overflow-hidden group hover:shadow-xl transition-all fade-up"><img class="h-56 w-full object-cover group-hover:scale-105 transition duration-700" src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=400&fit=crop" alt="pulses"><div class="p-6"><h3 class="font-bold text-xl">Premium Pulses & Lentils</h3><p class="text-sm text-on-surface-variant mt-2">Protein-rich, high-yield varieties for global buyers.</p><div class="mt-4"><span class="bg-primary-fixed px-3 py-1 rounded-full text-xs font-bold">FSSAI</span></div></div></div><div class="glass-card rounded-xl overflow-hidden group hover:shadow-xl transition-all fade-up"><img class="h-56 w-full object-cover group-hover:scale-105 transition duration-700" src="https://images.unsplash.com/photo-1634230480504-bdd0dda5e2a0?w=600&h=400&fit=crop" alt="oil seeds"><div class="p-6"><h3 class="font-bold text-xl">Oil Seeds</h3><p class="text-sm text-on-surface-variant mt-2">Sesame, mustard, groundnut – premium grade.</p></div></div><div class="glass-card rounded-xl overflow-hidden group hover:shadow-xl transition-all fade-up"><img class="h-56 w-full object-cover group-hover:scale-105 transition duration-700" src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&h=400&fit=crop" alt="dry fruits"><div class="p-6"><h3 class="font-bold text-xl">Dry Fruits & Nuts</h3><p class="text-sm text-on-surface-variant mt-2">Cashews, almonds, raisins – premium packaging.</p></div></div><div class="glass-card rounded-xl overflow-hidden group hover:shadow-xl transition-all fade-up"><img class="h-56 w-full object-cover group-hover:scale-105 transition duration-700" src="https://images.unsplash.com/photo-1590778792362-2a17d77b2a8a?w=600&h=400&fit=crop" alt="organic range"><div class="p-6"><h3 class="font-bold text-xl">Organic Range</h3><p class="text-sm text-on-surface-variant mt-2">Certified organic spices & grains for EU/US markets.</p></div></div></div></section>` },
+            markets: { title: "GlobalWay Impex | Global Markets", html: `<section class="py-section-padding px-6 md:px-12 max-w-screen-2xl mx-auto"><div class="text-center fade-up"><span class="font-label-caps text-on-secondary-container">STRATEGIC REACH</span><h1 class="headline-h1 font-display text-primary my-4">Markets We Serve</h1><p class="text-on-surface-variant max-w-2xl mx-auto">Deep-rooted partnerships across three continents with dedicated hubs & local expertise.</p></div><div class="grid md:grid-cols-3 gap-8 mt-16 fade-up"><div class="bg-primary-container/5 p-8 rounded-2xl border border-primary-fixed"><span class="material-symbols-outlined text-5xl text-primary">location_city</span><h3 class="text-2xl font-bold mt-4">Middle East</h3><ul class="mt-4 space-y-2 text-sm"><li>🇦🇪 UAE (Dubai, Abu Dhabi)</li><li>🇸🇦 Saudi Arabia (Riyadh, Jeddah)</li><li>🇶🇦 Qatar, 🇰🇼 Kuwait, 🇴🇲 Oman</li><li>Annual volume: 180k+ MT</li></ul></div><div class="bg-primary-container/5 p-8 rounded-2xl border border-primary-fixed"><span class="material-symbols-outlined text-5xl text-primary">ocean</span><h3 class="text-2xl font-bold mt-4">Southeast Asia</h3><ul class="mt-4 space-y-2 text-sm"><li>🇮🇩 Indonesia, 🇲🇾 Malaysia</li><li>🇸🇬 Singapore , 🇵🇭 Philippines</li><li>Strategic warehouses in Jakarta & Port Klang</li><li>Just-in-time delivery network</li></ul></div><div class="bg-primary-container/5 p-8 rounded-2xl border border-primary-fixed"><span class="material-symbols-outlined text-5xl text-primary">euro</span><h3 class="text-2xl font-bold mt-4">Europe</h3><ul class="mt-4 space-y-2 text-sm"><li>🇩🇪 Germany, 🇳🇱 Netherlands (Rotterdam hub)</li><li>🇫🇷 France, 🇬🇧 United Kingdom</li><li>EU organic & non-GMO compliance</li><li>75k+ MT per annum</li></ul></div></div><div class="mt-16 p-8 glass-card rounded-2xl fade-up"><h3 class="text-2xl font-bold text-primary">Expanding Footprint</h3><p class="mt-2">With new offices in Nairobi and Chicago, we're extending reach into East Africa and North America. Be part of our growing global family.</p></div></section>` },
+            contact: { title: "GlobalWay Impex | Contact", html: `<section class="py-section-padding px-6 md:px-12 max-w-screen-2xl mx-auto"><div class="grid md:grid-cols-2 gap-16"><div class="fade-up"><span class="font-label-caps text-on-secondary-container">LET'S CONNECT</span><h2 class="font-display text-headline-h2 text-primary mt-2 mb-6">Request a Quote</h2><p class="text-on-surface-variant mb-8">Our trade specialists respond within 24 hours with competitive pricing and logistics insights.</p><form id="quoteForm" class="space-y-6"><input type="text" placeholder="Full Name" class="w-full p-4 bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary" required><input type="email" placeholder="Business Email" class="w-full p-4 bg-surface-container-low rounded-xl border border-outline-variant" required><input type="text" placeholder="Product Interest (Rice/Spices/Pulses)" class="w-full p-4 bg-surface-container-low rounded-xl border border-outline-variant"><textarea rows="4" placeholder="Message / Volume (MT)" class="w-full p-4 bg-surface-container-low rounded-xl border border-outline-variant"></textarea><button type="submit" class="bg-primary text-white px-8 py-3 rounded-xl font-bold w-full smooth-btn">Send Inquiry →</button></form><p id="formSuccess" class="text-green-700 mt-4 hidden text-center">✅ Thank you! Our team will get back shortly.</p></div><div class="glass-card p-8 rounded-2xl fade-up"><div class="flex items-start gap-4 mb-8"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-bold">Corporate Office</h3><p class="text-sm">Mumbai, India – BKC, Bandra East 400051</p></div></div><div class="flex items-start gap-4 mb-8"><span class="material-symbols-outlined text-primary">call</span><div><h3 class="font-bold">Trade Desk</h3><p class="text-sm">+91 22 4890 2300 | exports@globalway.com</p></div></div><div class="flex items-start gap-4"><span class="material-symbols-outlined text-primary">schedule</span><div><h3 class="font-bold">Support Hours</h3><p class="text-sm">Mon-Fri: 9:00 AM – 6:00 PM (IST)</p></div></div><div class="mt-12 h-48 bg-primary-fixed/30 rounded-xl flex items-center justify-center text-primary/70 text-sm">📍 Interactive Map: Mumbai – Global Logistics Hub</div></div></div></section>` }
+        };
+
+        // Routing logic
+        let currentPage = 'home';
+        const contentDiv = document.getElementById('app-content');
+        
+        function setActiveNav(route) {
+            document.querySelectorAll('.nav-link, .mobile-nav-link, .footer-link').forEach(link => {
+                if(link.getAttribute('data-route') === route) {
+                    link.classList.add('text-blue-900', 'border-b-2', 'border-blue-900');
+                    link.classList.remove('text-slate-600');
+                } else {
+                    link.classList.remove('text-blue-900', 'border-b-2', 'border-blue-900');
+                    link.classList.add('text-slate-600');
+                }
+            });
+        }
+
+        function loadPage(route, pushState = true) {
+            if(!pages[route]) route = 'home';
+            currentPage = route;
+            if(pushState) window.history.pushState({ route }, '', `#${route}`);
+            contentDiv.classList.add('page-loading');
+            setTimeout(() => {
+                contentDiv.innerHTML = pages[route].html;
+                document.title = pages[route].title;
+                contentDiv.classList.remove('page-loading');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setActiveNav(route);
+                attachPageSpecificEvents();
+                initScrollAnimations();
+                closeMobileMenu();
+            }, 30);
+        }
+
+        function attachPageSpecificEvents() {
+            const quoteForm = document.getElementById('quoteForm');
+            if(quoteForm) {
+                quoteForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const successMsg = document.getElementById('formSuccess');
+                    if(successMsg) successMsg.classList.remove('hidden');
+                    quoteForm.reset();
+                    setTimeout(() => successMsg.classList.add('hidden'), 4000);
+                });
+            }
+        }
+
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+            }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
+            fadeElements.forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-up').forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); });
+        }
+
+        function closeMobileMenu() { document.getElementById('mobileMenu')?.classList.remove('open'); document.body.classList.remove('mobile-nav-open'); }
+        
+        // Event binding
+        function bindNavigation() {
+            document.querySelectorAll('.nav-link, .mobile-nav-link, .footer-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const route = link.getAttribute('data-route');
+                    if(route) loadPage(route, true);
+                });
+            });
+            window.addEventListener('popstate', (e) => { const hash = window.location.hash.slice(1) || 'home'; loadPage(hash, false); });
+            document.getElementById('quoteBtn')?.addEventListener('click', () => loadPage('contact', true));
+            document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.toggle('open');
+                document.body.classList.toggle('mobile-nav-open');
+            });
+            document.getElementById('newsletterSubscribe')?.addEventListener('click', () => {
+                const emailInput = document.getElementById('newsletterEmail');
+                if(emailInput.value.includes('@')) alert('🎉 Subscribed! Trade insights incoming.');
+                else alert('Please enter a valid email address.');
+                emailInput.value = '';
+            });
+        }
+        
+        // initial load
+        const initialRoute = window.location.hash.slice(1) || 'home';
+        loadPage(initialRoute, false);
+        bindNavigation();
+        // Additional style fix for icons & responsive
+        document.head.insertAdjacentHTML('beforeend', `<style>@media (max-width: 768px) { .px-12 { padding-left: 1.5rem; padding-right: 1.5rem; } .py-section-padding { padding-top: 3rem; padding-bottom: 3rem; } .headline-h1 { font-size: 2rem; } } .page-loading { opacity: 0; } .page-transition { transition: opacity 0.2s; } .mobile-menu { backdrop-filter: blur(24px); }</style>`);
+    </script>
+</body>
+</html>
