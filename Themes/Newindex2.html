@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GlobalWay Impex™ | Your Trust Our Legacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:      #1A3680;
+      --navy-dark: #0F2156;
+      --navy-mid:  #1E4499;
+      --green:     #5CB85C;
+      --green-bright: #6BBE23;
+      --green-lt:  #EAF6DB;
+      --green-mid: #4CAF50;
+      --white:     #FFFFFF;
+      --bg:        #F5F8FF;
+      --bg2:       #EEF3FC;
+      --text:      #0D1F40;
+      --text-mid:  #3A4F6E;
+      --text-soft: #6B7D9A;
+      --border:    rgba(26,54,128,0.10);
+      --border-g:  rgba(92,184,92,0.22);
+      --shadow-sm: 0 2px 14px rgba(26,54,128,0.08);
+      --shadow-md: 0 8px 40px rgba(26,54,128,0.14);
+      --shadow-lg: 0 20px 70px rgba(26,54,128,0.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100vh}
+
+    /* TYPOGRAPHY */
+    h1,h2,h3,h4{font-family:'Montserrat',sans-serif;color:var(--text)}
+    h1{font-size:clamp(2rem,4vw,3.4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em}
+    h2{font-size:clamp(1.6rem,3vw,2.5rem);font-weight:800;line-height:1.2}
+    h3{font-size:clamp(1.05rem,2vw,1.3rem);font-weight:700}
+
+    /* NAV */
+    nav.topnav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      padding:0 2rem;height:90px;
+      display:flex;align-items:center;justify-content:space-between;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(20px);
+      border-bottom:2px solid rgba(26,54,128,0.08);
+      transition:all .3s;
+    }
+    nav.topnav.scrolled{box-shadow:0 4px 30px rgba(26,54,128,0.12)}
+
+    .nav-brand{display:flex;align-items:center;gap:.75rem;position:relative}
+    .nav-brand img{
+      height:180px;width:auto;object-fit:contain;
+      filter:drop-shadow(0 2px 10px rgba(26,54,128,0.12));
+      transition:transform .3s;
+    }
+    .nav-brand img:hover{transform:scale(1.03)}
+    .tm-mark{
+      position:absolute;top:18px;right:-10px;
+      font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;
+      color:var(--navy);letter-spacing:0;line-height:1;
+    }
+
+    .nav-links{display:flex;align-items:center;gap:2.2rem}
+    .nav-links a{
+      font-family:'Montserrat',sans-serif;
+      font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--text-mid);text-decoration:none;position:relative;padding-bottom:3px;transition:color .2s;
+    }
+    .nav-links a::after{
+      content:'';position:absolute;bottom:-2px;left:0;
+      width:0;height:2px;background:var(--green-bright);transition:width .3s;
+    }
+    .nav-links a:hover,.nav-links a.active{color:var(--navy)}
+    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+
+    .btn-cta{
+      padding:.65rem 1.6rem;border:none;cursor:pointer;
+      background:linear-gradient(135deg,var(--navy),var(--navy-mid));
+      color:#fff;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;
+      letter-spacing:.1em;text-transform:uppercase;border-radius:6px;
+      transition:all .25s;box-shadow:0 4px 18px rgba(26,54,128,0.3);
+    }
+    .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,54,128,0.4)}
+    .btn-cta.green{background:linear-gradient(135deg,var(--green-mid),var(--green-bright));box-shadow:0 4px 18px rgba(92,184,92,0.35)}
+    .btn-cta.green:hover{box-shadow:0 8px 28px rgba(92,184,92,0.5)}
+
+    .ham-btn{display:none !important;background:none;border:1px solid var(--border);padding:.5rem;border-radius:6px;cursor:pointer;color:var(--text)}
+    .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;font-size:24px}
+
+    /* MOBILE MENU */
+    .mob-menu{
+      position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:1.75rem;
+      background:rgba(26,54,128,0.97);backdrop-filter:blur(32px);
+      transform:translateY(-100%);transition:transform .4s cubic-bezier(.76,0,.24,1);
+    }
+    .mob-menu.open{transform:translateY(0)}
+    .mob-menu a{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:800;color:#fff;text-decoration:none;transition:color .2s}
+    .mob-menu a:hover{color:var(--green-bright)}
+    .mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.5rem}
+
+    /* MAIN */
+    main{position:relative;z-index:1}
+    .page-section{padding:7rem 2rem;max-width:1260px;margin:0 auto}
+
+    /* SECTION LABEL */
+    .section-label{
+      display:inline-flex;align-items:center;gap:.6rem;
+      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;
+      letter-spacing:.22em;text-transform:uppercase;color:var(--green-bright);margin-bottom:.8rem;
+    }
+    .section-label::before{content:'';width:24px;height:2px;background:var(--green-bright)}
+
+    .section-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+
+    /* HERO */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;padding-top:90px;
+      background:linear-gradient(150deg,#EEF3FF 0%,#F5F8FF 50%,#EDF7E8 100%);
+    }
+    .hero-worldmap{
+      position:absolute;inset:0;pointer-events:none;
+      background-image:radial-gradient(circle,rgba(26,54,128,0.12) 1.5px,transparent 1.5px);
+      background-size:28px 28px;opacity:.5;
+    }
+    .hero-glow{
+      position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 700px 500px at 20% 60%,rgba(26,54,128,0.06) 0%,transparent 65%),
+        radial-gradient(ellipse 600px 400px at 80% 20%,rgba(92,184,92,0.07) 0%,transparent 60%);
+    }
+    .hero-inner{position:relative;z-index:2;text-align:center;max-width:900px;padding:2rem}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.45rem 1.3rem;border-radius:4px;
+      border:1.5px solid rgba(26,54,128,0.18);
+      background:rgba(26,54,128,0.06);
+      font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;
+      letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:1.75rem;
+    }
+    .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green-bright);animation:blink 2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+    .hero h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:900;letter-spacing:-.03em;line-height:1.0;color:var(--navy);margin-bottom:.5rem}
+    .hero h1 em{font-style:normal;color:var(--green-bright)}
+    .hero-tagline{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text-soft);margin-bottom:1.5rem}
+    .hero-tagline::before,.hero-tagline::after{content:'—— ';color:var(--green-bright)}
+    .hero-sub{font-size:1rem;color:var(--text-mid);max-width:560px;margin:0 auto 2.5rem;line-height:1.75}
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:4rem}
+    .btn-outline{
+      padding:.65rem 1.6rem;border:2px solid var(--navy);background:transparent;color:var(--navy);
+      font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.1em;
+      text-transform:uppercase;border-radius:6px;cursor:pointer;transition:all .25s;
+    }
+    .btn-outline:hover{background:var(--navy);color:#fff}
+
+    /* HERO STATS */
+    .hero-stats{
+      display:flex;gap:0;justify-content:center;max-width:680px;margin:0 auto;
+      border:2px solid rgba(26,54,128,0.12);border-radius:12px;
+      background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);
+      box-shadow:var(--shadow-sm);overflow:hidden;
+    }
+    .stat-item{flex:1;padding:1.4rem 1rem;text-align:center;position:relative}
+    .stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;height:60%;width:1px;background:var(--border)}
+    .stat-num{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:900;color:var(--navy)}
+    .stat-lbl{font-size:.65rem;color:var(--text-soft);letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;font-weight:600}
+
+    /* CURVED BLUE PANEL (brochure style) */
+    .blue-panel-section{
+      background:var(--navy);position:relative;overflow:hidden;
+      padding:5rem 2rem;
+    }
+    .blue-panel-section::before{
+      content:'';position:absolute;top:-60px;left:-60px;right:-60px;bottom:-60px;pointer-events:none;
+      background:radial-gradient(ellipse 60% 70% at 90% 50%,rgba(107,190,35,0.12) 0%,transparent 60%);
+    }
+    .blue-panel-inner{max-width:1260px;margin:0 auto}
+
+    /* CERTIFICATES */
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem}
+    .cert-card{
+      background:var(--white);border:2px solid var(--border);border-radius:14px;
+      padding:1.75rem 1.25rem;text-align:center;box-shadow:var(--shadow-sm);
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .cert-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,var(--navy),var(--green-bright));
+    }
+    .cert-card:hover{border-color:var(--border-g);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+    .cert-badge{
+      width:64px;height:64px;border-radius:50%;
+      background:linear-gradient(135deg,rgba(26,54,128,0.08),rgba(92,184,92,0.08));
+      border:2px solid var(--border);display:flex;align-items:center;justify-content:center;
+      margin:0 auto 1rem;font-size:28px;
+    }
+    .cert-name{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;color:var(--navy);margin-bottom:.35rem}
+    .cert-desc{font-size:.75rem;color:var(--text-soft);line-height:1.5}
+    .cert-num{
+      display:inline-block;margin-top:.65rem;
+      font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--green-mid);background:var(--green-lt);border-radius:4px;padding:.2rem .6rem;
+    }
+
+    /* IEC & MSME special cards */
+    .cert-card.iec-card,.cert-card.msme-card{
+      border-color:rgba(26,54,128,0.2);
+    }
+    .cert-card.iec-card::before{background:linear-gradient(90deg,#1A3680,#3B82F6)}
+    .cert-card.msme-card::before{background:linear-gradient(90deg,#DC2626,#F59E0B)}
+
+    /* QUALITY GRID */
+    .quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--border);box-shadow:var(--shadow-sm)}
+    .q-cell{background:var(--white);padding:2.25rem;display:flex;flex-direction:column;gap:.65rem;transition:background .3s}
+    .q-cell:hover{background:rgba(107,190,35,0.03)}
+    .q-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--green-lt),rgba(26,54,128,0.06));border:1.5px solid var(--border-g);display:flex;align-items:center;justify-content:center}
+    .q-icon .material-symbols-outlined{color:var(--green-mid);font-size:22px}
+    .q-title{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;color:var(--navy)}
+    .q-desc{font-size:.8rem;color:var(--text-soft);line-height:1.6}
+
+    /* PRODUCT CARDS */
+    .product-card{border-radius:14px;overflow:hidden;border:1.5px solid var(--border);background:var(--white);box-shadow:var(--shadow-sm);transition:all .35s}
+    .product-card:hover{border-color:var(--border-g);transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+    .product-img-wrap{height:200px;overflow:hidden;position:relative}
+    .product-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+    .product-card:hover .product-img-wrap img{transform:scale(1.07)}
+    .product-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,54,128,0.45) 0%,transparent 50%)}
+    .product-body{padding:1.35rem}
+    .product-tag{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--green-bright)}
+
+    /* DEHYDRATED PRODUCTS (blue-panel style) */
+    .dehyd-card{
+      border-radius:12px;overflow:hidden;background:rgba(255,255,255,0.08);
+      border:1.5px solid rgba(255,255,255,0.12);transition:all .3s;
+    }
+    .dehyd-card:hover{background:rgba(255,255,255,0.14);border-color:rgba(107,190,35,0.4);transform:translateY(-3px)}
+    .dehyd-img{height:160px;overflow:hidden;position:relative}
+    .dehyd-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .dehyd-card:hover .dehyd-img img{transform:scale(1.06)}
+    .dehyd-body{padding:1.15rem}
+
+    /* WHY CHOOSE US */
+    .why-card{
+      background:var(--white);border:1.5px solid var(--border);border-radius:14px;
+      padding:1.75rem;box-shadow:var(--shadow-sm);transition:all .3s;
+    }
+    .why-card:hover{border-color:var(--border-g);box-shadow:var(--shadow-md)}
+    .why-icon{
+      width:64px;height:64px;border-radius:50%;
+      border:2px solid var(--border-g);background:var(--green-lt);
+      display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;
+    }
+    .why-icon .material-symbols-outlined{color:var(--green-mid);font-size:28px}
+
+    /* PROCESS STEPS */
+    .process-step{display:grid;grid-template-columns:260px 1fr;gap:2rem;align-items:center;margin-bottom:2rem}
+    .process-step:nth-child(even){grid-template-columns:1fr 260px}
+    .process-step:nth-child(even) .ps-img{order:2}
+    .process-step:nth-child(even) .ps-content{order:1}
+    .ps-img{border-radius:18px;overflow:hidden;position:relative;box-shadow:var(--shadow-md)}
+    .ps-img img{width:100%;height:180px;object-fit:cover;display:block}
+    .ps-content{
+      background:var(--navy);border-radius:14px;padding:1.75rem 2rem;
+      position:relative;box-shadow:var(--shadow-md);
+    }
+    .ps-content::before{
+      content:'';position:absolute;left:-8px;top:50%;transform:translateY(-50%);
+      width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;
+      border-right:10px solid var(--navy);
+    }
+    .process-step:nth-child(even) .ps-content::before{
+      left:auto;right:-8px;
+      border-left:10px solid var(--navy);border-right:none;
+    }
+    .ps-num{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green-bright);margin-bottom:.5rem}
+    .ps-title{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.6rem}
+    .ps-desc{font-size:.82rem;color:rgba(255,255,255,0.72);line-height:1.65}
+    .ps-dot{
+      width:36px;height:36px;border-radius:50%;
+      background:linear-gradient(135deg,var(--green-mid),var(--green-bright));
+      display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;
+    }
+    .ps-dot .material-symbols-outlined{color:#fff;font-size:18px}
+
+    /* MARKETS */
+    .market-card{border:1.5px solid var(--border);border-radius:14px;background:var(--white);padding:2.25rem;box-shadow:var(--shadow-sm);transition:all .35s}
+    .market-card:hover{border-color:var(--border-g);transform:translateY(-5px);box-shadow:var(--shadow-md)}
+    .market-icon{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,rgba(26,54,128,0.08),var(--green-lt));border:1.5px solid var(--border-g);display:flex;align-items:center;justify-content:center;margin-bottom:1.35rem}
+    .market-icon .material-symbols-outlined{font-size:24px;color:var(--navy)}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .form-field{
+      width:100%;padding:1rem 1.25rem;
+      background:var(--bg);border:1.5px solid var(--border);border-radius:8px;
+      color:var(--text);font-family:'Open Sans',sans-serif;font-size:.9rem;
+      transition:border .2s,background .2s;outline:none;
+    }
+    .form-field::placeholder{color:var(--text-soft)}
+    .form-field:focus{border-color:var(--navy);background:#fff;box-shadow:0 0 0 3px rgba(26,54,128,0.08)}
+    textarea.form-field{resize:none;min-height:120px}
+    .contact-info-row{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;border:1.5px solid var(--border);border-radius:12px;background:var(--white);box-shadow:var(--shadow-sm);transition:all .3s}
+    .contact-info-row:hover{border-color:var(--border-g);box-shadow:var(--shadow-md)}
+    .ci-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,rgba(26,54,128,0.08),var(--green-lt));border:1.5px solid var(--border-g);display:flex;align-items:center;justify-content:center}
+    .ci-icon .material-symbols-outlined{font-size:20px;color:var(--navy)}
+
+    /* TIMELINE */
+    .timeline{position:relative;max-width:880px;margin:0 auto}
+    .timeline::before{content:'';position:absolute;left:50%;top:0;height:100%;width:2px;background:linear-gradient(to bottom,transparent,var(--green-bright),transparent);transform:translateX(-50%)}
+    .t-step{display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;gap:1.5rem;margin-bottom:2.5rem}
+    .t-step:nth-child(odd) .t-content{grid-column:1;text-align:right}
+    .t-step:nth-child(odd) .t-dot{grid-column:2}
+    .t-step:nth-child(odd) .t-empty{grid-column:3}
+    .t-step:nth-child(even) .t-content{grid-column:3;order:1}
+    .t-step:nth-child(even) .t-dot{grid-column:2;order:2}
+    .t-step:nth-child(even) .t-empty{grid-column:1;order:3}
+    .t-dot{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:.85rem;color:#fff;box-shadow:0 0 0 4px var(--green-lt),0 4px 20px rgba(26,54,128,0.25);justify-self:center;position:relative;z-index:2;flex-shrink:0}
+    .t-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1.3rem;box-shadow:var(--shadow-sm);transition:all .3s}
+    .t-card:hover{border-color:var(--border-g);box-shadow:var(--shadow-md)}
+    .t-card h4{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.35rem;color:var(--navy)}
+    .t-card p{font-size:.8rem;color:var(--text-soft);line-height:1.55}
+
+    /* IMG CARD */
+    .img-card{border-radius:18px;overflow:hidden;position:relative;border:1.5px solid var(--border);box-shadow:var(--shadow-lg)}
+    .img-card img{width:100%;height:400px;object-fit:cover;display:block}
+    .img-card-badge{position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border:1.5px solid var(--border);border-radius:10px;padding:.9rem 1.4rem;box-shadow:var(--shadow-md)}
+    .img-card-badge .num{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--navy)}
+    .img-card-badge .lbl{font-size:.65rem;color:var(--text-soft);letter-spacing:.12em;text-transform:uppercase}
+
+    /* TWO COL */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+
+    /* TAG PILLS */
+    .tag-pill{display:inline-flex;align-items:center;padding:.4rem 1rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(26,54,128,0.07);border:1.5px solid rgba(26,54,128,0.14);color:var(--navy)}
+    .tag-pill.green{background:var(--green-lt);border-color:var(--border-g);color:var(--green-mid)}
+
+    /* REGION ROW */
+    .region-row{display:flex;gap:1rem;align-items:flex-start;padding:1rem;border:1.5px solid var(--border);border-radius:10px;background:var(--white);box-shadow:var(--shadow-sm);transition:all .3s}
+    .region-row:hover{border-color:var(--border-g);box-shadow:var(--shadow-md)}
+    .region-icon{width:40px;height:40px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,rgba(26,54,128,0.08),var(--green-lt));border:1.5px solid var(--border-g);display:flex;align-items:center;justify-content:center}
+    .region-icon .material-symbols-outlined{color:var(--navy);font-size:20px}
+    .region-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:.15rem;color:var(--navy)}
+    .region-desc{font-size:.78rem;color:var(--text-soft)}
+
+    /* GLASS CARD */
+    .glass-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow-sm);transition:all .35s;position:relative;overflow:hidden}
+    .glass-card:hover{border-color:var(--border-g);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+
+    /* OPS STRIP */
+    .ops-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem}
+    .ops-card-main{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:3rem;box-shadow:var(--shadow-sm)}
+    .ops-card-green{padding:2.5rem;border-radius:14px;background:linear-gradient(135deg,var(--green-mid),var(--green-bright));display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 40px rgba(92,184,92,0.3)}
+    .ops-card-blue{padding:2.5rem;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 40px rgba(26,54,128,0.3)}
+
+    /* FOOTER */
+    footer{border-top:1px solid rgba(255,255,255,0.06);background:var(--navy-dark);padding:4rem 2rem 2rem;position:relative;z-index:1}
+    .footer-inner{max-width:1260px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:3rem;margin-bottom:3rem}
+    .footer-brand-name{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:.25rem}
+    .footer-tagline{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green-bright);margin-bottom:.85rem}
+    .footer-link{display:block;color:rgba(255,255,255,0.4);text-decoration:none;font-size:.82rem;margin-bottom:.75rem;transition:color .2s}
+    .footer-link:hover{color:var(--green-bright)}
+    .footer-heading{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.25rem}
+    .newsletter-wrap{display:flex;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;overflow:hidden}
+    .newsletter-wrap input{flex:1;padding:.75rem 1rem;background:transparent;border:none;outline:none;color:#fff;font-size:.82rem}
+    .newsletter-wrap input::placeholder{color:rgba(255,255,255,0.25)}
+    .newsletter-wrap button{padding:.75rem 1.25rem;background:linear-gradient(135deg,var(--green-mid),var(--green-bright));border:none;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;transition:opacity .2s}
+    .newsletter-wrap button:hover{opacity:.85}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-bottom p{font-size:.78rem;color:rgba(255,255,255,0.28)}
+
+    /* SCROLL ANIM */
+    .fade-up{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.2,.9,.4,1),transform .75s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+    .stagger-1{transition-delay:.07s}.stagger-2{transition-delay:.14s}.stagger-3{transition-delay:.21s}.stagger-4{transition-delay:.28s}
+
+    /* MOBILE BOTTOM NAV */
+    .mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:.4rem 0 calc(.4rem + env(safe-area-inset-bottom));box-shadow:0 -4px 24px rgba(26,54,128,0.1)}
+    .mob-bottom-nav-inner{display:flex;justify-content:space-around;align-items:center;max-width:480px;margin:0 auto}
+    .mob-nav-item{display:flex;flex-direction:column;align-items:center;gap:.2rem;background:none;border:none;color:var(--text-soft);cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.4rem .75rem;border-radius:8px;transition:all .2s;-webkit-tap-highlight-color:transparent}
+    .mob-nav-item .material-symbols-outlined{font-size:22px;color:var(--text-soft);transition:color .2s}
+    .mob-nav-item.active{color:var(--navy)}.mob-nav-item.active .material-symbols-outlined{color:var(--navy)}
+
+    @media(max-width:768px){
+      .mob-bottom-nav{display:block}
+      main#appRoot{padding-bottom:68px}
+      footer{padding-bottom:calc(4rem + 68px)}
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+      .two-col{grid-template-columns:1fr;gap:3rem}
+      .quality-grid{grid-template-columns:1fr 1fr}
+      .ops-strip{grid-template-columns:1fr 1fr;gap:1rem}
+      .ops-strip .ops-card-main{grid-column:1/-1}
+      .img-card img{height:320px}
+      .process-step,.process-step:nth-child(even){grid-template-columns:1fr}
+      .ps-img{display:none}
+      .ps-content::before,.process-step:nth-child(even) .ps-content::before{display:none}
+    }
+    @media(max-width:768px){
+      .nav-links{display:none}.btn-cta#quoteBtn{display:none}
+      .nav-brand img{height:140px}
+      .page-section{padding:3.5rem 1.25rem}
+      .hero{min-height:100svh;padding-top:90px}
+      .hero h1{font-size:2.2rem}
+      .hero-actions{flex-direction:column;align-items:center}
+      .hero-actions button{width:100%;max-width:300px;padding:.85rem 1.5rem;text-align:center}
+      .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;border:none;background:transparent;backdrop-filter:none;box-shadow:none;max-width:100%}
+      .stat-item{border:1.5px solid var(--border);border-radius:10px;background:rgba(255,255,255,0.9);box-shadow:var(--shadow-sm);padding:1rem .75rem}
+      .stat-item+.stat-item::before{display:none}
+      .stat-num{font-size:1.45rem}
+      .quality-grid{grid-template-columns:1fr}
+      .ops-strip{grid-template-columns:1fr 1fr;gap:.75rem}
+      .ops-strip .ops-card-main{grid-column:1/-1;padding:1.75rem}
+      .ops-card-green,.ops-card-blue{padding:1.5rem}
+      .timeline::before{display:none}
+      .t-step{display:flex;flex-direction:row;align-items:flex-start;gap:.75rem;margin-bottom:1.5rem}
+      .t-step .t-content{flex:1;text-align:left !important;order:2}
+      .t-step .t-dot{width:34px;height:34px;font-size:.78rem;flex-shrink:0;order:1;margin-top:.2rem;display:flex !important}
+      .t-step .t-empty{display:none}
+      .img-card img{height:230px}
+      .contact-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr;gap:2rem}
+      .footer-bottom{flex-direction:column;text-align:center}
+      .glass-card:hover,.product-card:hover,.market-card:hover{transform:none}
+      h2{font-size:1.55rem}
+      .cert-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){.cert-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav" id="topNav">
+  <div class="nav-brand">
+    <img src="WhatsApp_Image_2026-05-22_at_11.56.47_AM-removebg-preview.png" alt="GlobalWay Impex"
+      onerror="this.style.display='none'"/>
+    <span class="tm-mark">™</span>
+  </div>
+  <div class="nav-links">
+    <a href="#" data-route="home" class="nav-link active">Home</a>
+    <a href="#" data-route="about" class="nav-link">About</a>
+    <a href="#" data-route="products" class="nav-link">Products</a>
+    <a href="#" data-route="markets" class="nav-link">Markets</a>
+    <a href="#" data-route="contact" class="nav-link">Contact</a>
+  </div>
+  <button class="btn-cta" id="quoteBtn">Get a Quote</button>
+  <button class="ham-btn" id="hamBtn"><span class="material-symbols-outlined">menu</span></button>
+</nav>
+
+<!-- MOBILE SLIDE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose"><span class="material-symbols-outlined">close</span></button>
+  <a href="#" data-route="home" class="mob-link">Home</a>
+  <a href="#" data-route="about" class="mob-link">About</a>
+  <a href="#" data-route="products" class="mob-link">Products</a>
+  <a href="#" data-route="markets" class="mob-link">Markets</a>
+  <a href="#" data-route="contact" class="mob-link">Contact</a>
+  <button class="btn-cta green" id="mobQuoteBtn" style="margin-top:1rem">Get a Quote</button>
+</div>
+
+<!-- MOBILE BOTTOM TAB BAR -->
+<div class="mob-bottom-nav" id="mobBottomNav">
+  <div class="mob-bottom-nav-inner">
+    <button class="mob-nav-item active" data-route="home"><span class="material-symbols-outlined">home</span>Home</button>
+    <button class="mob-nav-item" data-route="about"><span class="material-symbols-outlined">info</span>About</button>
+    <button class="mob-nav-item" data-route="products"><span class="material-symbols-outlined">eco</span>Products</button>
+    <button class="mob-nav-item" data-route="markets"><span class="material-symbols-outlined">public</span>Markets</button>
+    <button class="mob-nav-item" data-route="contact"><span class="material-symbols-outlined">mail</span>Contact</button>
+  </div>
+</div>
+
+<main id="appRoot"></main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">GlobalWay Impex™</div>
+        <div class="footer-tagline">Your Trust Our Legacy</div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,0.38);line-height:1.7;max-width:240px">
+          Bringing the real taste of India to the world through premium agro-commodities.
+        </p>
+      </div>
+      <div>
+        <div class="footer-heading">Markets</div>
+        <a class="footer-link footer-nav-link" data-route="markets" href="#">Middle East</a>
+        <a class="footer-link footer-nav-link" data-route="markets" href="#">Southeast Asia</a>
+        <a class="footer-link footer-nav-link" data-route="markets" href="#">Europe</a>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <a class="footer-link footer-nav-link" data-route="about" href="#">About Us</a>
+        <a class="footer-link footer-nav-link" data-route="products" href="#">Products</a>
+        <a class="footer-link footer-nav-link" data-route="contact" href="#">Contact</a>
+      </div>
+      <div>
+        <div class="footer-heading">Trade Updates</div>
+        <p style="font-size:.8rem;color:rgba(255,255,255,0.35);margin-bottom:1rem">Commodity insights &amp; price alerts in your inbox.</p>
+        <div class="newsletter-wrap">
+          <input type="email" id="newsEmail" placeholder="Work email"/>
+          <button id="newsBtn">Join</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 GlobalWay Impex™. All rights reserved. | globalwayimpex1@gmail.com | +91 7698581522</p>
+      <div style="display:flex;gap:1.25rem">
+        <span class="material-symbols-outlined" style="color:rgba(255,255,255,0.28);cursor:pointer;transition:color .2s" onmouseover="this.style.color='#6BBE23'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">public</span>
+        <span class="material-symbols-outlined" style="color:rgba(255,255,255,0.28);cursor:pointer;transition:color .2s" onmouseover="this.style.color='#6BBE23'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">mail</span>
+        <span class="material-symbols-outlined" style="color:rgba(255,255,255,0.28);cursor:pointer;transition:color .2s" onmouseover="this.style.color='#6BBE23'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">share</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const pages = {
+
+/* ══════════════════════════════════════════════════════ HOME */
+home:{title:'GlobalWay Impex™ | Your Trust Our Legacy',html:`
+<section class="hero">
+  <div class="hero-worldmap"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot"></span>Premium Agro-Commodity Exports Since 2017</div>
+    <h1 style="color:var(--navy)">Excellence<br>Without <em>Borders</em></h1>
+    <p class="hero-tagline">— Your Trust Our Legacy —</p>
+    <p class="hero-sub">We bring the real taste of India to the world through premium fresh &amp; dehydrated fruits, vegetables and agro-commodities — certified, traceable and delivered with care.</p>
+    <div class="hero-actions">
+      <button class="btn-cta" onclick="loadPage('contact')">Request a Quote →</button>
+      <button class="btn-outline" onclick="loadPage('products')">View Products</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">500k+</div><div class="stat-lbl">MT Exported</div></div>
+      <div class="stat-item"><div class="stat-num">24+</div><div class="stat-lbl">Countries</div></div>
+      <div class="stat-item"><div class="stat-num">150+</div><div class="stat-lbl">B2B Partners</div></div>
+      <div class="stat-item"><div class="stat-num">8+</div><div class="stat-lbl">Years Active</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERT STRIP -->
+<section style="background:var(--navy);padding:2.25rem 2rem">
+  <div style="max-width:1260px;margin:0 auto">
+    <p style="text-align:center;font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.5rem">Certified &amp; Registered With</p>
+    <div style="display:flex;justify-content:center;align-items:center;gap:2.5rem;flex-wrap:wrap">
+      ${['🌿 APEDA','🏅 ISO 9001:2015','🍽️ FSSAI','🏢 MSME','📋 IEC','✅ HALAL'].map(c=>`
+      <div style="display:flex;align-items:center;gap:.5rem;font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:.06em">${c}</div>`).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES SECTION -->
+<section class="page-section">
+  <div style="text-align:center;margin-bottom:3.5rem" class="fade-up">
+    <div class="section-label" style="justify-content:center">Certifications &amp; Registrations</div>
+    <h2 style="color:var(--navy)">Our Official Credentials</h2>
+    <p style="color:var(--text-soft);margin-top:.75rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7">Every certificate reflects our commitment to quality, safety and authorized global trade.</p>
+  </div>
+  <div class="cert-grid fade-up">
+
+    <div class="cert-card">
+      <div class="cert-badge">🌿</div>
+      <div class="cert-name">APEDA</div>
+      <div class="cert-desc">Agricultural &amp; Processed Food Products Export Development Authority — registered exporter of Indian agro produce.</div>
+      <div class="cert-num">Govt. of India Registered</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-badge">🏅</div>
+      <div class="cert-name">ISO 9001:2015</div>
+      <div class="cert-desc">International Quality Management System certification ensuring consistent processes and product excellence.</div>
+      <div class="cert-num">Certified Company</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-badge">🍽️</div>
+      <div class="cert-name">FSSAI</div>
+      <div class="cert-desc">Food Safety &amp; Standards Authority of India — full compliance for hygienic food processing and packaging standards.</div>
+      <div class="cert-num">License Holder</div>
+    </div>
+
+    <div class="cert-card msme-card">
+      <div class="cert-badge">🏢</div>
+      <div class="cert-name">MSME</div>
+      <div class="cert-desc">Ministry of Micro, Small &amp; Medium Enterprises — government-recognized enterprise for reliable quality exports.</div>
+      <div class="cert-num" style="background:rgba(220,38,38,0.08);color:#DC2626">Udyam Registered</div>
+    </div>
+
+    <div class="cert-card iec-card">
+      <div class="cert-badge">📋</div>
+      <div class="cert-name">IEC Certificate</div>
+      <div class="cert-desc">Import Export Code issued by DGFT — mandatory government authorization for all international trade operations.</div>
+      <div class="cert-num" style="background:rgba(26,54,128,0.08);color:var(--navy)">DGFT Authorized</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-badge">✅</div>
+      <div class="cert-name">HALAL Certified</div>
+      <div class="cert-desc">Full Halal certification meeting international dietary requirements and processing standards for Middle East &amp; global Muslim markets.</div>
+      <div class="cert-num">Internationally Verified</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- WHY CHOOSE US -->
+<section class="page-section">
+  <div style="text-align:center;margin-bottom:3.5rem" class="fade-up">
+    <div class="section-label" style="justify-content:center">Our Strengths</div>
+    <h2 style="color:var(--navy)">Why Choose <span style="color:var(--green-bright)">Us</span></h2>
+    <p style="color:var(--text-soft);margin-top:.75rem">Simple things done right — quality you can trust, consistency you can rely on.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem">
+    ${[
+      {icon:'verified_user',title:'Hygienically Processed',desc:'All products are processed under optimum hygiene conditions ensuring food safety at every step.'},
+      {icon:'workspace_premium',title:'Premium Quality',desc:'Before dispatch, all products pass through rigorous quality tests and inspection protocols.'},
+      {icon:'emoji_food_beverage',title:'Tasty & Crispy',desc:'Our dehydrated products are crispy and retain the fresh taste, aroma and nutritional value.'},
+      {icon:'eco',title:'100% Pure',desc:'All products are 100% pure without any adulteration or harmful chemicals — natural goodness guaranteed.'},
+      {icon:'local_shipping',title:'Fast Delivery',desc:'Committed to on-time delivery of every order with proper documentation and logistics support.'},
+      {icon:'precision_manufacturing',title:'Tech-Driven Quality',desc:'Highly accurate dehydration machines embracing new technology for consistent total quality output.'},
+      {icon:'groups',title:'Customer Satisfaction',desc:'Achieving 100% customer satisfaction via premium quality and on-time delivery across all markets.'},
+      {icon:'handshake',title:'Built on Trust',desc:'Long-term partnerships built on transparency, professionalism and reliable trade relationships globally.'},
+    ].map((w,i)=>`
+    <div class="why-card fade-up stagger-${(i%4)+1}">
+      <div class="why-icon"><span class="material-symbols-outlined">${w.icon}</span></div>
+      <h3 style="font-size:.98rem;margin-bottom:.5rem;color:var(--navy)">${w.title}</h3>
+      <p style="font-size:.8rem;color:var(--text-soft);line-height:1.6">${w.desc}</p>
+    </div>`).join('')}
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- DEHYDRATED VEGETABLES FEATURE -->
+<section class="blue-panel-section">
+  <div class="blue-panel-inner">
+    <div style="text-align:center;margin-bottom:3rem" class="fade-up">
+      <div class="section-label" style="justify-content:center;color:var(--green-bright)">Flagship Category</div>
+      <h2 style="color:#fff;margin-bottom:.75rem">Premium Dehydrated<br><span style="color:var(--green-bright)">Vegetables & Fruits</span></h2>
+      <p style="color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto;line-height:1.75">Farm-fresh Indian produce dehydrated using advanced technology to preserve natural color, taste, and nutrients — packed hygienically for global export.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.1rem;margin-bottom:2.5rem">
+      ${[
+        {name:'Dehydrated Onion',form:'Flakes / Powder / Granules',img:'https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?w=400&q=70'},
+        {name:'Dehydrated Garlic',form:'Flakes / Powder / Granules',img:'https://images.unsplash.com/photo-1501420193117-c73a3a4b5e37?w=400&q=70'},
+        {name:'Dehydrated Tomato',form:'Flakes / Powder',img:'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&q=70'},
+        {name:'Dehydrated Ginger',form:'Flakes / Powder',img:'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&q=70'},
+        {name:'Dehydrated Carrot',form:'Diced / Flakes',img:'https://images.unsplash.com/photo-1445282768818-728615cc910a?w=400&q=70'},
+        {name:'Dehydrated Spinach',form:'Flakes / Powder',img:'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=70'},
+        {name:'Dehydrated Cabbage',form:'Flakes / Shredded',img:'https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=400&q=70'},
+        {name:'Dehydrated Chili',form:'Flakes / Powder',img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&q=70'},
+      ].map((d,i)=>`
+      <div class="dehyd-card fade-up stagger-${(i%4)+1}">
+        <div class="dehyd-img"><img src="${d.img}" alt="${d.name}" onerror="this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=60'"/></div>
+        <div class="dehyd-body">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green-bright);margin-bottom:.3rem">${d.form}</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:#fff">${d.name}</div>
+        </div>
+      </div>`).join('')}
+    </div>
+    <div style="text-align:center">
+      <button class="btn-cta green" onclick="loadPage('products')" style="font-size:.82rem;padding:.85rem 2rem">View All Products →</button>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL REACH -->
+<section class="page-section">
+  <div class="two-col">
+    <div class="fade-up">
+      <div class="section-label">Global Reach</div>
+      <h2>Serving Diverse<br>International Markets</h2>
+      <p style="color:var(--text-soft);margin:1.25rem 0 1.75rem;line-height:1.75">Deep-rooted relationships across three continents — powered by dedicated hubs and local expertise.</p>
+      <div style="display:flex;flex-direction:column;gap:.85rem;margin-bottom:2.5rem">
+        ${[
+          {icon:'language',region:'Middle East',desc:'Primary supplier to UAE, Saudi Arabia & Qatar distributors.'},
+          {icon:'south_east',region:'Southeast Asia',desc:'Extensive network across Indonesia, Malaysia & Singapore.'},
+          {icon:'euro',region:'Europe',desc:'Meeting stringent EU quality norms for distribution.'},
+        ].map(r=>`
+        <div class="region-row">
+          <div class="region-icon"><span class="material-symbols-outlined">${r.icon}</span></div>
+          <div><div class="region-name">${r.region}</div><div class="region-desc">${r.desc}</div></div>
+        </div>`).join('')}
+      </div>
+      <button class="btn-cta" onclick="loadPage('markets')">Explore Markets →</button>
+    </div>
+    <div class="fade-up stagger-2">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=80" alt="Global Trade"/>
+        <div class="img-card-badge"><div class="num">24+</div><div class="lbl">Countries Reached</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- OPS STRIP -->
+<section class="page-section fade-up">
+  <div class="ops-strip">
+    <div class="ops-card-main">
+      <h2 style="margin-bottom:1rem;color:var(--navy)">Operational<br>Excellence</h2>
+      <p style="color:var(--text-soft);line-height:1.75;max-width:400px">From farm-gate sourcing to final container seal — our logistics chain is optimized for speed, safety, and global scale.</p>
+    </div>
+    <div class="ops-card-green">
+      <span class="material-symbols-outlined" style="font-size:36px;color:rgba(255,255,255,0.5)">inventory_2</span>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:2.4rem;font-weight:900;color:#fff">500k+</div>
+        <div style="font-size:.68rem;color:rgba(255,255,255,0.8);letter-spacing:.12em;text-transform:uppercase;font-weight:600">MT Exported</div>
+      </div>
+    </div>
+    <div class="ops-card-blue">
+      <span class="material-symbols-outlined" style="font-size:36px;color:rgba(255,255,255,0.5)">handshake</span>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:2.4rem;font-weight:900;color:#fff">150+</div>
+        <div style="font-size:.68rem;color:rgba(255,255,255,0.7);letter-spacing:.12em;text-transform:uppercase;font-weight:600">Global Partners</div>
+      </div>
+    </div>
+  </div>
+</section>
+`},
+
+/* ══════════════════════════════════════════════════════ ABOUT */
+about:{title:'GlobalWay Impex™ | About Us',html:`
+<section class="page-section" style="padding-top:9rem">
+  <div style="max-width:680px;margin:0 auto;text-align:center" class="fade-up">
+    <div class="section-label" style="justify-content:center">Who We Are</div>
+    <h1 style="color:var(--navy);margin-bottom:1.5rem">Connecting Quality<br>with Global Markets</h1>
+    <p style="color:var(--text-soft);line-height:1.8;font-size:1rem;margin-bottom:1rem">At GlobalWay Impex, we bring the real taste of India to the world through premium fresh and dehydrated fruits and vegetables. We believe in simple things done right.</p>
+    <p style="color:var(--text-soft);line-height:1.8;margin-bottom:1rem">From farm to global markets, every product reflects our commitment to purity, precision, and professionalism. We don't just export products — we deliver trust.</p>
+    <p style="color:var(--text-soft);line-height:1.8;margin-bottom:2rem">Our focus is building long-term partnerships through quality, transparency, and customer satisfaction.</p>
+    <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">
+      <span style="color:var(--green-bright)">— </span>Your Trust Our Legacy<span style="color:var(--green-bright)"> —</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- DEHYDRATION PROCESS (inspired by brochure page 3) -->
+<section style="background:var(--bg2);padding:7rem 2rem">
+  <div style="max-width:1260px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:4rem" class="fade-up">
+      <div class="section-label" style="justify-content:center">How We Work</div>
+      <h2 style="color:var(--navy)">Dehydration <span style="color:var(--green-bright)">Process</span></h2>
+      <p style="color:var(--text-soft);margin-top:.75rem">Farm-fresh to export-ready — our precision 3-step dehydration process</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2rem">
+      ${[
+        {step:'01',icon:'volunteer_activism',title:'Selection & Cleaning',color:'var(--navy)',img:'https://images.unsplash.com/photo-1595855759920-86582396756a?w=400&q=70',desc:'Fresh vegetables are carefully selected from trusted farms based on quality and size. They are then thoroughly cleaned to remove dirt and impurities, ensuring hygienic processing.'},
+        {step:'02',icon:'content_cut',title:'Cutting & Slicing',color:'var(--green-mid)',img:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=70',desc:'Vegetables are carefully peeled and uniformly cut into flakes, slices, or granules using precision equipment. This ensures consistency and optimal dehydration quality.'},
+        {step:'03',icon:'local_fire_department',title:'Dehydration & Quality Check',color:'var(--navy)',img:'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400&q=70',desc:'Cut vegetables are dehydrated using advanced technology to preserve natural color, taste, and nutrients. Each batch is strictly quality-checked and hygienically packed to meet international export standards.'},
+      ].map((s,i)=>`
+      <div class="process-step fade-up stagger-${i+1}">
+        <div class="ps-img"><img src="${s.img}" alt="${s.title}" onerror="this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=60'"/></div>
+        <div class="ps-content" style="background:${s.color}">
+          <div class="ps-dot"><span class="material-symbols-outlined">${s.icon}</span></div>
+          <div class="ps-num">Step ${s.step}</div>
+          <div class="ps-title">${s.title}</div>
+          <p class="ps-desc">${s.desc}</p>
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPORT PROCESS TIMELINE -->
+<section class="page-section fade-up">
+  <div style="text-align:center;margin-bottom:4rem">
+    <div class="section-label" style="justify-content:center">Trade Process</div>
+    <h2 style="color:var(--navy)">How We Export</h2>
+    <p style="color:var(--text-soft);margin-top:.75rem">Simple, transparent &amp; efficient export process</p>
+  </div>
+  <div class="timeline">
+    ${[
+      {title:'Quotation Issued',desc:'You request a quote and receive a customized quotation tailored to your needs.'},
+      {title:'Documents Shared',desc:'We provide Proforma Invoice &amp; Full Corporate Offer for review.'},
+      {title:'Sample Dispatched',desc:'Free sample shipped after documentation is confirmed.'},
+      {title:'Advance Payment',desc:'Order is confirmed with advance payment and formal agreement.'},
+      {title:'Production Begins',desc:'Premium packaging and custom branding begins at our facility.'},
+      {title:'Final Approval',desc:'Buyer approves goods via inspection before dispatch.'},
+      {title:'Shipment Arranged',desc:'Shipment dispatched with all required trade documents.'},
+      {title:'Delivery Complete',desc:'Goods delivered with full quality checks and post-delivery support.'},
+    ].map((s,i)=>`
+    <div class="t-step fade-up stagger-${(i%4)+1}">
+      <div class="t-content"><div class="t-card"><h4>${i+1}. ${s.title}</h4><p>${s.desc}</p></div></div>
+      <div class="t-dot">${i+1}</div>
+      <div class="t-empty"></div>
+    </div>`).join('')}
+  </div>
+</section>
+`},
+
+/* ══════════════════════════════════════════════════════ PRODUCTS */
+products:{title:'GlobalWay Impex™ | Products',html:`
+<section class="page-section" style="padding-top:9rem">
+  <div style="text-align:center;margin-bottom:4rem" class="fade-up">
+    <div class="section-label" style="justify-content:center">Quality Commodities</div>
+    <h1 style="color:var(--navy);margin-bottom:1rem">Our Premium<br>Export Range</h1>
+    <p style="color:var(--text-soft);max-width:500px;margin:0 auto;line-height:1.75">Farm-fresh Indian produce exported globally — packed with care, certified for quality.</p>
+  </div>
+
+  <!-- FRESH PRODUCE -->
+  <div style="margin-bottom:5rem">
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem" class="fade-up">
+      <div style="width:4px;height:32px;background:var(--green-bright);border-radius:2px"></div>
+      <h2 style="color:var(--navy);font-size:1.5rem">Fresh Produce</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem">
+      ${[
+        {name:'Fresh Onion',tag:'Root Vegetable',img:'asset/IMG_5587.JPG.jpeg',desc:'Premium export quality onions with exceptional shelf life and consistent sizing.'},
+        {name:'Fresh Mango',tag:'Tropical Fruit',img:'asset/IMG_5593.PNG',desc:'Naturally ripened Alphonso & Kesar mangoes — the pride of Indian horticulture.'},
+        {name:'Fresh Grapes',tag:'Table Fruit',img:'asset/IMG_5592.PNG',desc:'Export-quality seedless grapes packed in hygienic, temperature-controlled units.'},
+        {name:'Pomegranate',tag:'Premium Fruit',img:'asset/IMG_5594.PNG',desc:'Juicy fresh pomegranates rich in flavor, color, and nutritional value.'},
+        {name:'Fresh Potatoes',tag:'Root Vegetable',img:'asset/IMG_5596.PNG',desc:'Farm-fresh potatoes — consistent grade, clean skin, suitable for global markets.'},
+        {name:'Green Chili',tag:'Spice & Herb',img:'asset/IMG_5597.PNG',desc:'Fresh green chilies with rich aroma and calibrated heat level for diverse cuisines.'},
+        {name:'Drumstick (Moringa)',tag:'Superfood',img:'asset/IMG_5599.PNG',desc:'Fresh moringa pods with superior nutritional profile — exported with premium packaging.'},
+      ].map((p,i)=>`
+      <div class="product-card fade-up stagger-${(i%4)+1}">
+        <div class="product-img-wrap"><img src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=70'"/></div>
+        <div class="product-body">
+          <div class="product-tag">${p.tag}</div>
+          <h3 style="margin:.4rem 0 .4rem;font-size:1.05rem;color:var(--navy)">${p.name}</h3>
+          <p style="font-size:.8rem;color:var(--text-soft);line-height:1.6">${p.desc}</p>
+          <button style="margin-top:1rem;padding:.5rem 1.2rem;border:1.5px solid var(--navy);border-radius:4px;background:transparent;color:var(--navy);font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s"
+            onmouseover="this.style.background='var(--navy)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--navy)'"
+            onclick="loadPage('contact')">Request Quote →</button>
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>
+
+  <!-- DEHYDRATED VEGETABLES -->
+  <div class="blue-panel-section" style="margin:-1px -2rem;padding:5rem 2rem;border-radius:0">
+    <div style="max-width:1260px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem" class="fade-up">
+        <div style="width:4px;height:32px;background:var(--green-bright);border-radius:2px"></div>
+        <h2 style="color:#fff;font-size:1.5rem">Dehydrated Vegetables <span style="color:var(--green-bright);font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;vertical-align:middle;margin-left:.5rem">— Flagship</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.25rem">
+        ${[
+          {name:'Dehydrated Onion',forms:['Flakes','Powder','Minced','Granules'],img:'https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?w=400&q=70',desc:'Long shelf-life, consistent color, ideal for food processing, soups and seasoning blends.'},
+          {name:'Dehydrated Garlic',forms:['Flakes','Powder','Granules'],img:'https://images.unsplash.com/photo-1501420193117-c73a3a4b5e37?w=400&q=70',desc:'Strong aroma, no preservatives, widely used in spice blends and ready-to-eat food products.'},
+          {name:'Dehydrated Tomato',forms:['Flakes','Powder'],img:'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&q=70',desc:'Bright red color, rich lycopene content, perfect for sauces, soups and pizza toppings.'},
+          {name:'Dehydrated Ginger',forms:['Flakes','Powder','Slices'],img:'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&q=70',desc:'High oleoresin content, sharp flavor profile suited for spice blends and herbal teas.'},
+          {name:'Dehydrated Carrot',forms:['Diced','Flakes','Powder'],img:'https://images.unsplash.com/photo-1445282768818-728615cc910a?w=400&q=70',desc:'Vibrant orange color retained through advanced dehydration for soups and snacks.'},
+          {name:'Dehydrated Spinach',forms:['Flakes','Powder'],img:'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=70',desc:'Nutrient-dense with deep green color — used in pastas, health foods and beverages.'},
+          {name:'Dehydrated Cabbage',forms:['Flakes','Shredded'],img:'https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=400&q=70',desc:'Crispy texture retained perfectly, ideal for instant noodles and dried food applications.'},
+          {name:'Dehydrated Green Chili',forms:['Flakes','Powder','Crushed'],img:'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&q=70',desc:'Calibrated heat level, vibrant green, perfect for spice blends and global cuisines.'},
+          {name:'Dehydrated Bitter Gourd',forms:['Slices','Powder'],img:'https://images.unsplash.com/photo-1611672585731-fa10603fb9e0?w=400&q=70',desc:'Medicinal-grade dehydration for export to health food and nutraceutical industries.'},
+          {name:'Dehydrated Potato',forms:['Flakes','Granules','Diced'],img:'https://images.unsplash.com/photo-1508313880080-c4bef0730395?w=400&q=70',desc:'White and uniform flakes used globally in instant mashed potato and snack manufacturing.'},
+        ].map((p,i)=>`
+        <div class="dehyd-card fade-up stagger-${(i%4)+1}" style="position:relative">
+          <div class="dehyd-img"><img src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=60'"/></div>
+          <div class="dehyd-body">
+            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem">
+              ${p.forms.map(f=>`<span style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(107,190,35,0.15);border:1px solid rgba(107,190,35,0.3);border-radius:3px;padding:.15rem .45rem;color:var(--green-bright)">${f}</span>`).join('')}
+            </div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:700;color:#fff;margin-bottom:.4rem">${p.name}</div>
+            <p style="font-size:.76rem;color:rgba(255,255,255,0.6);line-height:1.55">${p.desc}</p>
+            <button style="margin-top:.85rem;padding:.45rem 1rem;border:1px solid rgba(107,190,35,0.4);border-radius:4px;background:transparent;color:var(--green-bright);font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;width:100%"
+              onmouseover="this.style.background='rgba(107,190,35,0.12)'" onmouseout="this.style.background='transparent'"
+              onclick="loadPage('contact')">Request Quote →</button>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </div>
+</section>
+`},
+
+/* ══════════════════════════════════════════════════════ MARKETS */
+markets:{title:'GlobalWay Impex™ | Markets',html:`
+<section class="page-section" style="padding-top:9rem">
+  <div style="text-align:center;margin-bottom:4rem" class="fade-up">
+    <div class="section-label" style="justify-content:center">Strategic Reach</div>
+    <h1 style="color:var(--navy);margin-bottom:1rem">Markets We Serve</h1>
+    <p style="color:var(--text-soft);max-width:500px;margin:0 auto;line-height:1.75">Deep-rooted partnerships across three continents with dedicated hubs and local market expertise.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem;margin-bottom:2.5rem">
+    ${[
+      {icon:'location_city',region:'Middle East',items:['🇦🇪 UAE — Dubai & Abu Dhabi','🇸🇦 Saudi Arabia — Riyadh & Jeddah','🇶🇦 Qatar &nbsp;·&nbsp; 🇰🇼 Kuwait &nbsp;·&nbsp; 🇴🇲 Oman','Annual volume: 180k+ MT']},
+      {icon:'ocean',region:'Southeast Asia',items:['🇮🇩 Indonesia &nbsp;·&nbsp; 🇲🇾 Malaysia','🇸🇬 Singapore &nbsp;·&nbsp; 🇵🇭 Philippines','Warehouses in Jakarta & Port Klang','Just-in-time delivery network']},
+      {icon:'euro',region:'Europe',items:['🇩🇪 Germany &nbsp;·&nbsp; 🇳🇱 Netherlands','🇫🇷 France &nbsp;·&nbsp; 🇬🇧 United Kingdom','EU organic & non-GMO compliance','75k+ MT per annum']},
+    ].map((m,i)=>`
+    <div class="market-card fade-up stagger-${i+1}">
+      <div class="market-icon"><span class="material-symbols-outlined">${m.icon}</span></div>
+      <h3 style="margin-bottom:1.2rem;color:var(--navy)">${m.region}</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.75rem">
+        ${m.items.map(it=>`<li style="font-size:.82rem;color:var(--text-soft);line-height:1.5">${it}</li>`).join('')}
+      </ul>
+    </div>`).join('')}
+  </div>
+  <div class="glass-card fade-up" style="padding:2rem 2.5rem">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center">
+      <div>
+        <h3 style="color:var(--navy);margin-bottom:.65rem">Expanding Footprint</h3>
+        <p style="color:var(--text-soft);line-height:1.75">With new offices in Nairobi and Chicago, we're extending reach into East Africa and North America. Be part of our growing global family.</p>
+      </div>
+      <button class="btn-cta" onclick="loadPage('contact')" style="white-space:nowrap;flex-shrink:0">Partner With Us →</button>
+    </div>
+  </div>
+</section>
+`},
+
+/* ══════════════════════════════════════════════════════ CONTACT */
+contact:{title:'GlobalWay Impex™ | Contact',html:`
+<section class="page-section" style="padding-top:9rem">
+  <div class="contact-grid">
+    <div class="fade-up">
+      <div class="section-label">Let's Connect</div>
+      <h2 style="color:var(--navy);margin-bottom:1rem">Request a<br>Quote Today</h2>
+      <p style="color:var(--text-soft);line-height:1.75;margin-bottom:2.5rem">Our trade specialists respond within 24 hours with competitive pricing and logistics insights tailored to your needs.</p>
+      <form id="quoteForm" style="display:flex;flex-direction:column;gap:1rem">
+        <input class="form-field" id="fullName" type="text" placeholder="Full Name" required/>
+        <input class="form-field" id="businessEmail" type="email" placeholder="Business Email" required/>
+        <input class="form-field" id="productInterest" type="text" placeholder="Product Interest (e.g. Dehydrated Onion, Fresh Mango)"/>
+        <textarea class="form-field" id="messageBox" rows="4" placeholder="Message / Volume (MT)"></textarea>
+        <button type="submit" class="btn-cta" style="width:100%;padding:1rem;font-size:.9rem;border-radius:8px">Send Inquiry →</button>
+      </form>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.1rem" class="fade-up stagger-2">
+      <div class="contact-info-row">
+        <div class="ci-icon"><span class="material-symbols-outlined">location_on</span></div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;margin-bottom:.35rem;color:var(--navy)">Corporate Office</div>
+          <div style="font-size:.8rem;color:var(--text-soft);line-height:1.6">268, Nehrunagar Makarba Road, Sarkhej, Ahmedabad 380051</div>
+        </div>
+      </div>
+      <div class="contact-info-row">
+        <div class="ci-icon"><span class="material-symbols-outlined">call</span></div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;margin-bottom:.35rem;color:var(--navy)">Trade Desk</div>
+          <div style="font-size:.8rem;color:var(--text-soft);line-height:1.7">+91 7698581522<br>WhatsApp: +91 7698581522<br>globalwayimpex1@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-info-row">
+        <div class="ci-icon"><span class="material-symbols-outlined">schedule</span></div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;margin-bottom:.35rem;color:var(--navy)">Support Hours</div>
+          <div style="font-size:.8rem;color:var(--text-soft)">Mon–Fri: 9:00 AM – 6:00 PM IST</div>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;border:1.5px solid var(--border);flex:1;min-height:240px;box-shadow:var(--shadow-sm)">
+        <iframe src="https://www.google.com/maps?q=268,+Nehrunagar+Makarba+Road,+Sarkhej,+Ahmedabad+380051&output=embed"
+          width="100%" height="300" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+`}
+
+};
+
+// ── SPA ROUTER ──
+let current='home';
+const root=document.getElementById('appRoot');
+
+function loadPage(route,push=true){
+  if(!pages[route])route='home';
+  current=route;
+  if(push)history.pushState({route},'','#'+route);
+  document.title=pages[route].title;
+  root.style.cssText='opacity:0;transform:translateY(12px);transition:opacity .2s,transform .2s';
+  setTimeout(()=>{
+    root.innerHTML=pages[route].html;
+    root.style.cssText='opacity:1;transform:translateY(0);transition:opacity .2s,transform .2s';
+    window.scrollTo({top:0,behavior:'smooth'});
+    setActiveNav(route);initAnimations();initForms();closeMob();
+  },180);
+}
+
+function setActiveNav(r){
+  document.querySelectorAll('.nav-link').forEach(a=>a.classList.toggle('active',a.dataset.route===r));
+  document.querySelectorAll('.mob-nav-item').forEach(b=>b.classList.toggle('active',b.dataset.route===r));
+}
+
+function initAnimations(){
+  const els=document.querySelectorAll('.fade-up');
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('visible');
+    else obs.observe(el);
+  });
+}
+
+function initForms(){
+  const f=document.getElementById('quoteForm');
+  if(f)f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('fullName').value;
+    const em=document.getElementById('businessEmail').value;
+    const p=document.getElementById('productInterest')?.value||'';
+    const m=document.getElementById('messageBox')?.value||'';
+    window.location.href='mailto:globalwayimpex1@gmail.com?subject='+encodeURIComponent('New Trade Inquiry From '+n)+'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+em+'\nProduct: '+p+'\nMessage:\n'+m);
+  });
+}
+
+function openMob(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden'}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow=''}
+
+document.getElementById('hamBtn').addEventListener('click',openMob);
+document.getElementById('mobClose').addEventListener('click',closeMob);
+
+document.querySelectorAll('[data-route]').forEach(el=>{
+  el.addEventListener('click',e=>{e.preventDefault();loadPage(el.dataset.route)});
+});
+document.getElementById('quoteBtn').addEventListener('click',()=>loadPage('contact'));
+document.getElementById('mobQuoteBtn')?.addEventListener('click',()=>loadPage('contact'));
+document.querySelectorAll('.footer-nav-link').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();loadPage(a.dataset.route)});
+});
+
+document.getElementById('newsBtn')?.addEventListener('click',()=>{
+  const v=document.getElementById('newsEmail')?.value||'';
+  if(v.includes('@')){alert('🎉 Subscribed! Trade insights incoming.');document.getElementById('newsEmail').value='';}
+  else alert('Please enter a valid email.');
+});
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('topNav').classList.toggle('scrolled',window.scrollY>20);
+});
+window.addEventListener('popstate',()=>loadPage(window.location.hash.slice(1)||'home',false));
+loadPage(window.location.hash.slice(1)||'home',false);
+</script>
+</body>
+</html>
