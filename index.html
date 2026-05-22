@@ -82,8 +82,8 @@ nav.topnav.scrolled{
   background:rgba(5,15,31,0.95);
   box-shadow:0 4px 40px rgba(0,0,0,0.4);
 }
-.nav-brand{display:flex;align-items:center;gap:.10rem}
-.nav-brand img{height:100px;width:auto;object-fit:contain;filter:drop-shadow(0 0 8px rgba(0,200,150,0.3))}
+.nav-brand{display:flex;align-items:center;gap:.75rem}
+.nav-brand img{height:48px;width:auto;object-fit:contain;filter:drop-shadow(0 0 8px rgba(0,200,150,0.3))}
 .nav-brand span{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--white);text-transform:uppercase}
 
 .nav-links{display:flex;align-items:center;gap:2.5rem}
@@ -111,20 +111,20 @@ nav.topnav.scrolled{
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 4px 30px rgba(0,200,150,0.4)}
 .btn-cta:active{transform:scale(.97)}
 
-/* mobile hamburger */
-.ham-btn{display:none;background:none;border:1.5px solid var(--border);padding:.5rem;border-radius:8px;cursor:pointer;color:var(--white)}
+/* mobile hamburger - hidden since we use bottom nav */
+.ham-btn{display:none !important;background:none;border:1.5px solid var(--border);padding:.5rem;border-radius:8px;cursor:pointer;color:var(--white)}
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;font-size:24px}
 
 /* ─── MOBILE MENU ─── */
 .mob-menu{
-  position:fixed;inset:0;z-index:99;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+  position:fixed;inset:0;z-index:200;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.75rem;
   background:rgba(5,15,31,0.97);backdrop-filter:blur(32px);
   transform:translateY(-100%);transition:transform .4s cubic-bezier(.76,0,.24,1);
 }
 .mob-menu.open{transform:translateY(0)}
 .mob-menu a{
-  font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--white);
+  font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);
   text-decoration:none;letter-spacing:-.01em;transition:color .2s;
 }
 .mob-menu a:hover{color:var(--emerald)}
@@ -417,7 +417,33 @@ footer{
 }
 .footer-bottom p{font-size:.8rem;color:rgba(255,255,255,0.3)}
 
-/* ─── SCROLL ANIMATIONS ─── */
+/* ─── MOBILE BOTTOM NAV ─── */
+.mob-bottom-nav{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:rgba(5,15,31,0.92);backdrop-filter:blur(24px);
+  border-top:1px solid var(--border);
+  padding:.5rem 0 calc(.5rem + env(safe-area-inset-bottom));
+}
+.mob-bottom-nav-inner{
+  display:flex;justify-content:space-around;align-items:center;max-width:480px;margin:0 auto;
+}
+.mob-nav-item{
+  display:flex;flex-direction:column;align-items:center;gap:.2rem;
+  background:none;border:none;color:var(--muted);cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;padding:.4rem .75rem;border-radius:10px;
+  transition:all .2s;-webkit-tap-highlight-color:transparent;
+}
+.mob-nav-item .material-symbols-outlined{font-size:22px;transition:color .2s}
+.mob-nav-item.active{color:var(--emerald)}
+.mob-nav-item.active .material-symbols-outlined{color:var(--emerald)}
+.mob-nav-item:hover{color:var(--white)}
+@media(max-width:768px){
+  .mob-bottom-nav{display:block}
+  main#appRoot{padding-bottom:72px}
+  footer{padding-bottom:calc(4rem + 72px)}
+}
 .fade-up{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.9,.4,1),transform .8s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 .stagger-1{transition-delay:.1s}
@@ -471,31 +497,116 @@ footer{
   background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.2);color:var(--emerald);
 }
 
+/* ─── OPERATIONS STRIP (inline grid) ─── */
+.ops-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem}
+
+/* ─── MARKETS CTA CARD ─── */
+.markets-expand-card{
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
+}
+
 /* ─── RESPONSIVE ─── */
+
+/* Tablet */
 @media(max-width:1024px){
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
   .two-col{grid-template-columns:1fr;gap:3rem}
   .two-col.flip{direction:ltr}
-  .quality-grid{grid-template-columns:1fr}
+  .quality-grid{grid-template-columns:1fr 1fr}
+  .ops-strip{grid-template-columns:1fr 1fr;gap:1rem}
+  .ops-strip>:first-child{grid-column:1 / -1}
+  .img-card img{height:320px}
 }
+
+/* Mobile */
 @media(max-width:768px){
-  .nav-links,.btn-cta{display:none}
+  /* Nav */
+  .nav-links{display:none}
+  .btn-cta#quoteBtn{display:none}
   .ham-btn{display:flex;align-items:center;justify-content:center}
-  .hero h1{font-size:2.5rem}
-  .hero-stats{flex-direction:column;gap:0;border:none;background:transparent;backdrop-filter:none}
-  .stat-item{border:1px solid var(--border);border-radius:12px;background:var(--card-bg)}
+  .nav-brand img{height:44px}
+  .nav-brand span{font-size:.9rem}
+
+  /* Page sections */
+  .page-section{padding:3.5rem 1.25rem}
+
+  /* Hero */
+  .hero{min-height:100svh;padding-top:72px}
+  .hero h1{font-size:2.3rem;letter-spacing:-.025em}
+  .hero-sub{font-size:.95rem}
+  .hero-actions{flex-direction:column;align-items:center}
+  .hero-actions .btn-cta,
+  .hero-actions .btn-outline{width:100%;max-width:300px;text-align:center;padding:.85rem 1.5rem}
+  .hero-stats{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:.75rem;border:none;background:transparent;backdrop-filter:none;max-width:100%;
+  }
+  .stat-item{border:1px solid var(--border);border-radius:14px;background:var(--card-bg);padding:1.25rem .75rem}
   .stat-item+.stat-item::before{display:none}
-  .timeline::before{display:none}
-  .t-step{grid-template-columns:1fr;gap:.75rem}
-  .t-step:nth-child(even) .t-content,
-  .t-step:nth-child(odd) .t-content{grid-column:1;order:unset;text-align:left}
-  .t-step:nth-child(even) .t-dot,
-  .t-step:nth-child(odd) .t-dot{display:none}
-  .t-step:nth-child(even) .t-empty,
-  .t-step:nth-child(odd) .t-empty{display:none}
-  .contact-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .stat-num{font-size:1.5rem}
+
+  /* Quality grid */
   .quality-grid{grid-template-columns:1fr}
+
+  /* Ops strip */
+  .ops-strip{grid-template-columns:1fr 1fr;gap:.75rem}
+  .ops-strip>:first-child{grid-column:1 / -1;padding:2rem !important}
+  .ops-strip>:first-child h2{font-size:1.5rem}
+  .ops-strip>:nth-child(2),
+  .ops-strip>:nth-child(3){padding:1.5rem !important}
+  .ops-strip>:nth-child(2) div:first-child,
+  .ops-strip>:nth-child(3) div:first-child{font-size:1.8rem !important}
+
+  /* Timeline */
+  .timeline::before{display:none}
+  .t-step{
+    display:flex;flex-direction:row;align-items:flex-start;
+    gap:.75rem;margin-bottom:1.5rem;
+  }
+  .t-step .t-content{flex:1;text-align:left !important;order:2}
+  .t-step .t-dot{
+    width:36px;height:36px;font-size:.8rem;
+    flex-shrink:0;order:1;margin-top:.25rem;display:flex !important;
+  }
+  .t-step .t-empty{display:none}
+  .t-card{padding:1.25rem}
+  .t-card h4{font-size:.95rem}
+
+  /* Image card */
+  .img-card img{height:240px}
+  .img-card-badge{padding:.75rem 1rem}
+  .img-card-badge .num{font-size:1.5rem}
+
+  /* Products grid */
+  [style*="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))"],
+  .products-grid{grid-template-columns:1fr !important}
+
+  /* Markets expand card */
+  .markets-expand-card{
+    grid-template-columns:1fr;gap:1.25rem;
+  }
+  .markets-expand-card button{width:100%}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr}
+  .contact-grid form .btn-cta{font-size:.85rem}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;text-align:center;gap:.75rem}
+
+  /* Misc */
+  h2{font-size:1.7rem}
+  h1{font-size:2rem}
+
+  /* Disable heavy hover transforms on touch */
+  .glass-card:hover,
+  .product-card:hover,
+  .market-card:hover{transform:none}
+
+  /* Fix operations stat text overflow */
+  .ops-strip [style*="font-size:2.5rem"]{font-size:1.6rem !important}
+  .ops-strip [style*="font-size:40px"]{font-size:28px !important}
 }
 </style>
 </head>
@@ -504,7 +615,7 @@ footer{
 <!-- TOP NAV -->
 <nav class="topnav" id="topNav">
   <div class="nav-brand">
-    <img src="WhatsApp_Image_2026-04-28_at_7.31.14_PM-removebg-preview.png" width="100%" height="50%" alt="GlobalWay" onerror="this.style.display='none'"/>
+    <img src="WhatsApp_Image_2026-04-28_at_7.31.14_PM-removebg-preview.png" alt="GlobalWay" onerror="this.style.display='none'"/>
     <span>GlobalWay Impex</span>
   </div>
   <div class="nav-links">
@@ -529,7 +640,26 @@ footer{
   <button class="btn-cta" id="mobQuoteBtn" style="margin-top:1rem">Get a Quote</button>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MOBILE BOTTOM NAV -->
+<div class="mob-bottom-nav" id="mobBottomNav">
+  <div class="mob-bottom-nav-inner">
+    <button class="mob-nav-item active" data-route="home" id="bnHome">
+      <span class="material-symbols-outlined">home</span>Home
+    </button>
+    <button class="mob-nav-item" data-route="about" id="bnAbout">
+      <span class="material-symbols-outlined">info</span>About
+    </button>
+    <button class="mob-nav-item" data-route="products" id="bnProducts">
+      <span class="material-symbols-outlined">eco</span>Products
+    </button>
+    <button class="mob-nav-item" data-route="markets" id="bnMarkets">
+      <span class="material-symbols-outlined">public</span>Markets
+    </button>
+    <button class="mob-nav-item" data-route="contact" id="bnContact">
+      <span class="material-symbols-outlined">mail</span>Contact
+    </button>
+  </div>
+</div>
 <main id="appRoot"></main>
 
 <!-- FOOTER -->
@@ -676,7 +806,7 @@ const pages = {
 
       <!-- OPERATIONS STRIP -->
       <section class="page-section fade-up">
-        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem">
+        <div class="ops-strip">
           <div class="glass-card" style="padding:3rem">
             <h2 style="margin-bottom:1rem">Operational<br>Prowess</h2>
             <p style="color:var(--muted);line-height:1.7;max-width:420px">From farm-gate sourcing to final container seal — our logistics chain is optimized for speed, safety, and global scale.</p>
@@ -769,7 +899,7 @@ const pages = {
             Farm-fresh Indian produce exported globally — packed with care, certified for quality.
           </p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem">
           ${[
             {name:'Fresh Onion',tag:'Root Vegetable',img:'asset/IMG_5587.JPG.jpeg',desc:'Premium export quality onions with exceptional shelf life and consistent sizing.'},
             {name:'Fresh Mango',tag:'Tropical Fruit',img:'asset/IMG_5593.PNG',desc:'Naturally ripened Alphonso & Kesar mangoes — the pride of Indian horticulture.'},
@@ -818,13 +948,13 @@ const pages = {
             </ul>
           </div>`).join('')}
         </div>
-        <div class="glass-card fade-up" style="padding:3rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center">
+        <div class="glass-card fade-up" style="padding:2rem 2.5rem"><div class="markets-expand-card">
           <div>
             <h3 style="margin-bottom:.75rem">Expanding Footprint</h3>
             <p style="color:var(--muted);line-height:1.7">With new offices in Nairobi and Chicago, we're extending reach into East Africa and North America. Be part of our growing global family and benefit from our established trade corridors.</p>
           </div>
           <button class="btn-cta" onclick="loadPage('contact')" style="white-space:nowrap;flex-shrink:0">Partner With Us →</button>
-        </div>
+        </div></div>
       </section>
     `
   },
@@ -909,6 +1039,10 @@ function loadPage(route, push=true) {
 function setActiveNav(route) {
   document.querySelectorAll('.nav-link').forEach(a=>{
     a.classList.toggle('active', a.dataset.route === route);
+  });
+  // bottom nav
+  document.querySelectorAll('.mob-nav-item').forEach(b=>{
+    b.classList.toggle('active', b.dataset.route === route);
   });
 }
 
