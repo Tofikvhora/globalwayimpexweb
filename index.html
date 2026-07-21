@@ -1644,6 +1644,221 @@
       color: var(--navy)
     }
 
+    /* ── IMAGE LIGHTBOX ── */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(13, 31, 64, 0.55);
+      backdrop-filter: blur(12px) saturate(120%);
+      -webkit-backdrop-filter: blur(12px) saturate(120%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease
+    }
+
+    .lightbox-overlay.open {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .lightbox-box {
+      background: var(--white);
+      border-radius: 18px;
+      max-width: 1000px;
+      width: 100%;
+      max-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transform: scale(.92) translateY(20px);
+      transition: transform .35s cubic-bezier(.2, .9, .4, 1)
+    }
+
+    .lightbox-overlay.open .lightbox-box {
+      transform: scale(1) translateY(0)
+    }
+
+    .lightbox-img-pane {
+      position: relative;
+      background: #F0F3FA;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      min-height: 320px;
+      touch-action: none
+    }
+
+    .lightbox-img-pane.dragging {
+      cursor: grabbing
+    }
+
+    .lightbox-img-pane img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+      transition: transform .12s ease;
+      transform-origin: center center;
+      will-change: transform
+    }
+
+    .lightbox-zoom-controls {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: .35rem;
+      box-shadow: var(--shadow-md)
+    }
+
+    .lightbox-zoom-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 7px;
+      border: none;
+      background: transparent;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s
+    }
+
+    .lightbox-zoom-btn:hover {
+      background: var(--bg2)
+    }
+
+    .lightbox-zoom-btn .material-symbols-outlined {
+      font-size: 19px
+    }
+
+    .lightbox-zoom-level {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      min-width: 38px;
+      text-align: center
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 5;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all .2s
+    }
+
+    .lightbox-close:hover {
+      background: var(--navy);
+      color: #fff;
+      transform: rotate(90deg)
+    }
+
+    .lightbox-detail-pane {
+      padding: 2.25rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column
+    }
+
+    .lightbox-detail-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin-bottom: .75rem;
+      line-height: 1.25
+    }
+
+    .lightbox-detail-desc {
+      font-size: .88rem;
+      color: var(--text-soft);
+      line-height: 1.75;
+      margin-bottom: 1.5rem
+    }
+
+    .lightbox-detail-specs {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-bottom: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border)
+    }
+
+    .lightbox-cta {
+      margin-top: auto;
+      width: 100%;
+      padding: .85rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(26, 54, 128, 0.3);
+      transition: all .2s
+    }
+
+    .lightbox-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(26, 54, 128, 0.4)
+    }
+
+    .img-zoomable {
+      cursor: zoom-in
+    }
+
+    @media(max-width:768px) {
+      .lightbox-box {
+        grid-template-columns: 1fr;
+        max-height: 92vh;
+        overflow-y: auto
+      }
+
+      .lightbox-img-pane {
+        min-height: 240px;
+        height: 280px
+      }
+
+      .lightbox-overlay {
+        padding: .75rem
+      }
+    }
+
     /* ── RESPONSIVE ── */
     @media(max-width:1024px) {
       .footer-grid {
@@ -1909,6 +2124,29 @@
   </div>
 
   <main id="appRoot"></main>
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox-box" onclick="event.stopPropagation()">
+      <button class="lightbox-close" id="lightboxClose"><span class="material-symbols-outlined">close</span></button>
+      <div class="lightbox-img-pane" id="lightboxImgPane">
+        <img id="lightboxImg" src="" alt="" />
+        <div class="lightbox-zoom-controls">
+          <button class="lightbox-zoom-btn" id="lbZoomOut"><span
+              class="material-symbols-outlined">remove</span></button>
+          <span class="lightbox-zoom-level" id="lbZoomLevel">100%</span>
+          <button class="lightbox-zoom-btn" id="lbZoomIn"><span class="material-symbols-outlined">add</span></button>
+          <button class="lightbox-zoom-btn" id="lbZoomReset"><span
+              class="material-symbols-outlined">restart_alt</span></button>
+        </div>
+      </div>
+      <div class="lightbox-detail-pane">
+        <div id="lightboxTag" class="product-tag"></div>
+        <h3 class="lightbox-detail-title" id="lightboxTitle"></h3>
+        <p class="lightbox-detail-desc" id="lightboxDesc"></p>
+        <div class="lightbox-detail-specs" id="lightboxSpecs"></div>
+        <button class="lightbox-cta" onclick="closeLightbox();loadPage('contact')">Request Quote →</button>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -2053,11 +2291,9 @@
   </div>
   <div class="cert-grid fade-up">
     <div class="cert-card"><div class="cert-badge">🌿</div><div class="cert-name">APEDA</div><div class="cert-desc">Agricultural &amp; Processed Food Products Export Development Authority — registered exporter of Indian agro produce.</div><div class="cert-num">Govt. of India Registered</div></div>
-    <div class="cert-card"><div class="cert-badge">🏅</div><div class="cert-name">ISO 9001:2015</div><div class="cert-desc">International Quality Management System certification ensuring consistent processes and product excellence.</div><div class="cert-num">Certified Company</div></div>
     <div class="cert-card"><div class="cert-badge">🍽️</div><div class="cert-name">FSSAI</div><div class="cert-desc">Food Safety &amp; Standards Authority of India — full compliance for hygienic food processing and packaging standards.</div><div class="cert-num">License Holder</div></div>
     <div class="cert-card msme-card"><div class="cert-badge">🏢</div><div class="cert-name">MSME / UDYAM</div><div class="cert-desc">Ministry of Micro, Small &amp; Medium Enterprises — government-recognized enterprise for reliable quality exports.</div><div class="cert-num" style="background:rgba(220,38,38,0.08);color:#DC2626">Udyam Registered</div><a class="cert-download-btn" href="asset/PDF/Print _ Udyam Registration Certificate globalway impex.pdf" download target="_blank" rel="noopener"><span class="material-symbols-outlined">download</span>Download PDF</a></div>
     <div class="cert-card iec-card"><div class="cert-badge">📋</div><div class="cert-name">IEC Certificate</div><div class="cert-desc">Import Export Code issued by DGFT — mandatory government authorization for all international trade operations.</div><div class="cert-num" style="background:rgba(26,54,128,0.08);color:var(--navy)">DGFT Authorized</div><a class="cert-download-btn" href="asset/PDF/certificateOfIEC.pdf" download target="_blank" rel="noopener"><span class="material-symbols-outlined">download</span>Download PDF</a></div>
-    <div class="cert-card"><div class="cert-badge">✅</div><div class="cert-name">HALAL Certified</div><div class="cert-desc">Full Halal certification meeting international dietary requirements for Middle East &amp; global Muslim markets.</div><div class="cert-num">Internationally Verified</div></div>
     <div class="cert-card"><div class="cert-badge">🧾</div><div class="cert-name">GST Certificate</div><div class="cert-desc">Goods &amp; Services Tax registration certificate — verified tax compliance for all domestic and export transactions.</div><div class="cert-num">Govt. Registered</div><a class="cert-download-btn" href="asset/PDF/GST GLOBALWAY IMPEX.PDF.pdf" download target="_blank" rel="noopener"><span class="material-symbols-outlined">download</span>Download PDF</a></div>
   </div>
 </section>
@@ -2095,7 +2331,7 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.1rem;margin-bottom:2.5rem">
       <div class="dehyd-card dehyd-card-clickable fade-up stagger-1" onclick="loadPage('dehyd_onion')">
-        <div class="dehyd-img"><img src="asset/IMG_5598.PNG" alt="Dehydrated Onion"/></div>
+        <div class="dehyd-img"><img src="asset/Onion/Red/Red Onion flakes.PNG" alt="Dehydrated Onion"/></div>
         <div class="dehyd-body">
           <div style="font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green-bright);margin-bottom:.3rem">Flakes / Powder / Granules</div>
           <div style="font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:#fff">Dehydrated Onion</div>
@@ -2103,7 +2339,7 @@
         </div>
       </div>
       <div class="dehyd-card dehyd-card-clickable fade-up stagger-2" onclick="loadPage('dehyd_garlic')">
-        <div class="dehyd-img"><img src="asset/garlic/Premium dehydrated garlic flakes.jpeg" alt="Dehydrated Garlic"/></div>
+        <div class="dehyd-img"><img src="asset/garlic/Premium dehydrated garlic flakes.png" alt="Dehydrated Garlic"/></div>
         <div class="dehyd-body">
           <div style="font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green-bright);margin-bottom:.3rem">Flakes / Powder / Granules</div>
           <div style="font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:#fff">Dehydrated Garlic</div>
@@ -2277,7 +2513,7 @@
       <p style="color:rgba(255,255,255,0.5);font-size:.82rem;margin-bottom:2rem">Click on any product to explore all available forms &amp; variants.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.25rem">
         <div class="dehyd-card dehyd-card-clickable fade-up stagger-1" onclick="loadPage('dehyd_onion')">
-          <div class="dehyd-img"><img src="asset/IMG_5598.PNG" alt="Dehydrated Onion"/></div>
+          <div class="dehyd-img"><img src="asset/Onion/Red/Red Onion flakes.PNG" alt="Dehydrated Onion"/></div>
           <div class="dehyd-body">
             <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem">
               ${['Flakes', 'Powder', 'Minced', 'Granules', 'Chopped'].map(f => `<span style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(107,190,35,0.15);border:1px solid rgba(107,190,35,0.3);border-radius:3px;padding:.15rem .45rem;color:var(--green-bright)">${f}</span>`).join('')}
@@ -2287,7 +2523,7 @@
           </div>
         </div>
         <div class="dehyd-card dehyd-card-clickable fade-up stagger-2" onclick="loadPage('dehyd_garlic')">
-          <div class="dehyd-img"><img src="asset/garlic/Premium dehydrated garlic flakes.jpeg" alt="Dehydrated Garlic"/></div>
+          <div class="dehyd-img"><img src="asset/garlic/Premium dehydrated garlic flakes.png" alt="Dehydrated Garlic"/></div>
           <div class="dehyd-body">
             <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem">
               ${['Flakes', 'Powder', 'Minced', 'Granules', 'Chopped'].map(f => `<span style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(107,190,35,0.15);border:1px solid rgba(107,190,35,0.3);border-radius:3px;padding:.15rem .45rem;color:var(--green-bright)">${f}</span>`).join('')}
@@ -2463,9 +2699,119 @@
         grid.innerHTML = cat.variants.map((v, i) => buildVariantCard(product, cat, v, i)).join('');
         grid.style.opacity = '1';
         initAnimations();
+        initLightboxTriggers();
       }, 150);
     }
+    // ── LIGHTBOX (image preview + zoom) ──
+    let lbScale = 1, lbPosX = 0, lbPosY = 0, lbDragging = false, lbStartX = 0, lbStartY = 0, lbTouchDist = 0;
+    const lbOverlay = document.getElementById('lightboxOverlay');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbPane = document.getElementById('lightboxImgPane');
 
+    function openLightbox({ img, tag = '', title = '', desc = '', specs = [] }) {
+      lbImg.src = img;
+      lbImg.alt = title;
+      const tagEl = document.getElementById('lightboxTag');
+      tagEl.textContent = tag;
+      tagEl.style.display = tag ? 'block' : 'none';
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxDesc').textContent = desc;
+      document.getElementById('lightboxSpecs').innerHTML = specs.map(s =>
+        `<div class="spec-row"><span class="spec-label">${s.label}</span><span class="spec-val">${s.val}</span></div>`
+      ).join('');
+      resetLbZoom();
+      lbOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lbOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function applyLbTransform() {
+      lbImg.style.transform = `translate(${lbPosX}px, ${lbPosY}px) scale(${lbScale})`;
+      document.getElementById('lbZoomLevel').textContent = Math.round(lbScale * 100) + '%';
+    }
+    function resetLbZoom() { lbScale = 1; lbPosX = 0; lbPosY = 0; applyLbTransform(); }
+    function zoomLbIn() { lbScale = Math.min(lbScale + 0.35, 4); applyLbTransform(); }
+    function zoomLbOut() { lbScale = Math.max(lbScale - 0.35, 1); if (lbScale === 1) { lbPosX = 0; lbPosY = 0; } applyLbTransform(); }
+
+    document.getElementById('lbZoomIn').addEventListener('click', zoomLbIn);
+    document.getElementById('lbZoomOut').addEventListener('click', zoomLbOut);
+    document.getElementById('lbZoomReset').addEventListener('click', resetLbZoom);
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    lbOverlay.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && lbOverlay.classList.contains('open')) closeLightbox(); });
+
+    // scroll wheel zoom
+    lbPane.addEventListener('wheel', e => {
+      e.preventDefault();
+      e.deltaY < 0 ? zoomLbIn() : zoomLbOut();
+    }, { passive: false });
+
+    // mouse drag when zoomed
+    lbPane.addEventListener('mousedown', e => {
+      if (lbScale <= 1) return;
+      lbDragging = true;
+      lbPane.classList.add('dragging');
+      lbStartX = e.clientX - lbPosX;
+      lbStartY = e.clientY - lbPosY;
+    });
+    window.addEventListener('mousemove', e => {
+      if (!lbDragging) return;
+      lbPosX = e.clientX - lbStartX;
+      lbPosY = e.clientY - lbStartY;
+      applyLbTransform();
+    });
+    window.addEventListener('mouseup', () => { lbDragging = false; lbPane.classList.remove('dragging'); });
+
+    // touch: pinch to zoom + drag to pan
+    lbPane.addEventListener('touchstart', e => {
+      if (e.touches.length === 2) {
+        lbTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      } else if (e.touches.length === 1 && lbScale > 1) {
+        lbDragging = true;
+        lbStartX = e.touches[0].clientX - lbPosX;
+        lbStartY = e.touches[0].clientY - lbPosY;
+      }
+    }, { passive: true });
+    lbPane.addEventListener('touchmove', e => {
+      if (e.touches.length === 2) {
+        const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+        lbScale = Math.min(Math.max(lbScale + (dist - lbTouchDist) * 0.01, 1), 4);
+        lbTouchDist = dist;
+        applyLbTransform();
+      } else if (e.touches.length === 1 && lbDragging) {
+        lbPosX = e.touches[0].clientX - lbStartX;
+        lbPosY = e.touches[0].clientY - lbStartY;
+        applyLbTransform();
+      }
+    }, { passive: true });
+    lbPane.addEventListener('touchend', () => { lbDragging = false; });
+
+    // double-click / double-tap to toggle zoom
+    lbImg.addEventListener('dblclick', () => { lbScale > 1 ? resetLbZoom() : (lbScale = 2, applyLbTransform()); });
+
+    // Attaches click-to-preview to every image inside a container, using the
+    // data already embedded in each card (works for product cards, variant
+    // cards, and dehydrated preview cards without needing to touch your data arrays).
+    function initLightboxTriggers(container = document) {
+      container.querySelectorAll('.product-img-wrap img, .variant-img img, .dehyd-img img').forEach(img => {
+        if (img.dataset.lbBound) return;
+        img.dataset.lbBound = '1';
+        img.classList.add('img-zoomable');
+        img.addEventListener('click', e => {
+          e.stopPropagation(); // don't trigger a parent card's navigation
+          const card = img.closest('.product-card, .variant-card, .dehyd-card');
+          const title = card?.querySelector('h3, .dehyd-body div[style*="font-weight:700"]')?.textContent?.trim()
+            || img.alt || '';
+          const desc = card?.querySelector('.product-body p, .variant-body p')?.textContent?.trim() || '';
+          const tag = card?.querySelector('.product-tag, .variant-badge')?.textContent?.trim() || '';
+          openLightbox({ img: img.currentSrc || img.src, title, desc, tag });
+        });
+      });
+    }
     // ── SPA ROUTER ──
     let current = 'home';
     const root = document.getElementById('appRoot');
@@ -2491,7 +2837,7 @@
         root.innerHTML = html;
         root.style.cssText = 'opacity:1;transform:translateY(0);transition:opacity .2s,transform .2s';
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        initAnimations(); initForms(); closeMob();
+        initAnimations(); initForms(); closeMob(); initLightboxTriggers(); closeMob();
       }, 180);
     }
 
