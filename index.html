@@ -620,6 +620,35 @@
       background: linear-gradient(90deg, #DC2626, #F59E0B)
     }
 
+    .cert-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-top: .75rem;
+      padding: .45rem 1rem;
+      border-radius: 6px;
+      border: 1.5px solid var(--navy);
+      background: transparent;
+      color: var(--navy);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .cert-download-btn:hover {
+      background: var(--navy);
+      color: #fff
+    }
+
+    .cert-download-btn .material-symbols-outlined {
+      font-size: 15px
+    }
+
     .product-card {
       border-radius: 14px;
       overflow: hidden;
@@ -1969,11 +1998,11 @@
           garlic: {
             label: 'Dehydrated Garlic',
             variants: [
-              { form: 'Powder', img: 'asset/garlic/Premium dehydrated garlic powder with rich.jpeg', desc: 'Premium dehydrated garlic powder with rich aroma, fine texture (80–100 mesh), and natural flavor for food seasoning and processing. Uniform color, no additives.' },
-              { form: 'Minced', img: 'asset/garlic/Premium dehydrated garlic minced.jpeg', desc: 'Premium dehydrated garlic minced with strong natural aroma, crunchy texture, and rich flavor for seasoning and food processing. Ready-to-use in all cuisines.' },
-              { form: 'Chopped', img: 'asset/garlic/Premium dehydrated garlic chopped.jpeg', desc: 'Premium dehydrated garlic chopped with natural off-white color, coarse texture, strong aroma, and clean dry appearance for high-quality culinary use.' },
-              { form: 'Flakes', img: 'asset/garlic/Premium dehydrated garlic flakes.jpeg', desc: 'Premium dehydrated garlic flakes with crisp texture, natural creamy-white color, rich aroma, and clean dry appearance for versatile food applications.' },
-              { form: 'Granules', img: 'asset/garlic/Premium dehydrated garlic granules.jpeg', desc: 'Premium dehydrated garlic granules with uniform coarse texture, natural light golden color, strong fresh aroma, and clean dry appearance for seasoning and food processing.' },
+              { form: 'Powder', img: 'asset/garlic/Premium dehydrated garlic powder with rich.png', desc: 'Premium dehydrated garlic powder with rich aroma, fine texture (80–100 mesh), and natural flavor for food seasoning and processing. Uniform color, no additives.' },
+              { form: 'Minced', img: 'asset/garlic/Premium dehydrated garlic minced.png', desc: 'Premium dehydrated garlic minced with strong natural aroma, crunchy texture, and rich flavor for seasoning and food processing. Ready-to-use in all cuisines.' },
+              { form: 'Chopped', img: 'asset/garlic/Premium dehydrated garlic chopped.png', desc: 'Premium dehydrated garlic chopped with natural off-white color, coarse texture, strong aroma, and clean dry appearance for high-quality culinary use.' },
+              { form: 'Flakes', img: 'asset/garlic/Premium dehydrated garlic flakes.png', desc: 'Premium dehydrated garlic flakes with crisp texture, natural creamy-white color, rich aroma, and clean dry appearance for versatile food applications.' },
+              { form: 'Granules', img: 'asset/garlic/Premium dehydrated garlic granules.png', desc: 'Premium dehydrated garlic granules with uniform coarse texture, natural light golden color, strong fresh aroma, and clean dry appearance for seasoning and food processing.' },
             ]
           }
         }
@@ -2026,9 +2055,10 @@
     <div class="cert-card"><div class="cert-badge">🌿</div><div class="cert-name">APEDA</div><div class="cert-desc">Agricultural &amp; Processed Food Products Export Development Authority — registered exporter of Indian agro produce.</div><div class="cert-num">Govt. of India Registered</div></div>
     <div class="cert-card"><div class="cert-badge">🏅</div><div class="cert-name">ISO 9001:2015</div><div class="cert-desc">International Quality Management System certification ensuring consistent processes and product excellence.</div><div class="cert-num">Certified Company</div></div>
     <div class="cert-card"><div class="cert-badge">🍽️</div><div class="cert-name">FSSAI</div><div class="cert-desc">Food Safety &amp; Standards Authority of India — full compliance for hygienic food processing and packaging standards.</div><div class="cert-num">License Holder</div></div>
-    <div class="cert-card msme-card"><div class="cert-badge">🏢</div><div class="cert-name">MSME</div><div class="cert-desc">Ministry of Micro, Small &amp; Medium Enterprises — government-recognized enterprise for reliable quality exports.</div><div class="cert-num" style="background:rgba(220,38,38,0.08);color:#DC2626">Udyam Registered</div></div>
-    <div class="cert-card iec-card"><div class="cert-badge">📋</div><div class="cert-name">IEC Certificate</div><div class="cert-desc">Import Export Code issued by DGFT — mandatory government authorization for all international trade operations.</div><div class="cert-num" style="background:rgba(26,54,128,0.08);color:var(--navy)">DGFT Authorized</div></div>
+    <div class="cert-card msme-card"><div class="cert-badge">🏢</div><div class="cert-name">MSME / UDYAM</div><div class="cert-desc">Ministry of Micro, Small &amp; Medium Enterprises — government-recognized enterprise for reliable quality exports.</div><div class="cert-num" style="background:rgba(220,38,38,0.08);color:#DC2626">Udyam Registered</div><a class="cert-download-btn" href="asset/PDF/Print _ Udyam Registration Certificate globalway impex.pdf" download target="_blank" rel="noopener"><span class="material-symbols-outlined">download</span>Download PDF</a></div>
+    <div class="cert-card iec-card"><div class="cert-badge">📋</div><div class="cert-name">IEC Certificate</div><div class="cert-desc">Import Export Code issued by DGFT — mandatory government authorization for all international trade operations.</div><div class="cert-num" style="background:rgba(26,54,128,0.08);color:var(--navy)">DGFT Authorized</div><a class="cert-download-btn" href="asset/PDF/certificateOfIEC.pdf" download target="_blank" rel="noopener"><span class="material-symbols-outlined">download</span>Download PDF</a></div>
     <div class="cert-card"><div class="cert-badge">✅</div><div class="cert-name">HALAL Certified</div><div class="cert-desc">Full Halal certification meeting international dietary requirements for Middle East &amp; global Muslim markets.</div><div class="cert-num">Internationally Verified</div></div>
+    <div class="cert-card"><div class="cert-badge">🧾</div><div class="cert-name">GST Certificate</div><div class="cert-desc">Goods &amp; Services Tax registration certificate — verified tax compliance for all domestic and export transactions.</div><div class="cert-num">Govt. Registered</div><a class="cert-download-btn" href="asset/PDF/GST GLOBALWAY IMPEX.PDF.pdf" download target="_blank" rel="noopener"><span class="material-symbols-outlined">download</span>Download PDF</a></div>
   </div>
 </section>
 
